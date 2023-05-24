@@ -77,7 +77,9 @@ namespace pisV228._4
 
         private static List<MaintenanceShelter> ReadDataMS()
         {
-            var readedData = ReadTxt(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataMainShelters.txt")
+            var path = Path.Combine(
+                new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "DataMainShelters.txt");
+            var readedData = ReadTxt(path)
                 .Select(x => new MaintenanceShelter(x)).ToList();
             msID = readedData.Max(x => x.UniqueIdentifier);
             return readedData;
