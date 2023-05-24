@@ -1,0 +1,5 @@
+﻿12,Москва, Кошка, Женский, 10.04.2019, 987654321, Мурка, Серая шерсть, Колокольчик на ошейнике, C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg
+13,Санкт-Петербург, Собака, Мужской, 05.07.2015, 654321987, Бобик, Рыжая шерсть, Ошейник с адресной биркой, C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg
+14,Екатеринбург, Кошка, Женский, 20.05.2020, 789456123, Чебурашка, Серебристая шерсть, Красные глазки, C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg
+15,Новосибирск, Собака, Мужской, 15.02.2018, 321654987, Рекс, Коричневая шерсть, Ошейник с биркой,C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg
+16,Казань, Кошка, Женский, 03.12.2017, 567891234, Мурзик, Черная шерсть, Белое пятно на лапе,C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg
