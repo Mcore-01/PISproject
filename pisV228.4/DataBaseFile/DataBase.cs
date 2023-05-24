@@ -22,7 +22,7 @@ namespace pisV228._4
 
         public static void AddAnimal(Animal data)
         {
-            animalID = 1;
+            animalID++;
             data.AnimalID = animalID;
             animals.Add(data);
         }
