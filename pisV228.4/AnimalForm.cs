@@ -13,14 +13,17 @@ namespace pisV228._4
 {
     public partial class AnimalForm : Form
     {
-
+        //private bool IsAddition;
         private AnimalController controller;
+        private MaintenanceShelterController controllerMS;
         private string pathPicture;
         private Animal currentAnimal;
         public AnimalForm(AnimalController controller)
         {
             InitializeComponent();
             this.controller = controller;
+            controllerMS = new MaintenanceShelterController(controller.user);
+            MainShelterGroupBox.Visible = false;
         }
         public AnimalForm(AnimalController controller, Animal currentAnimal)
         {
@@ -161,7 +164,7 @@ namespace pisV228._4
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)
         {
-            var formMS = new MaintenanceShelterForm();
+            var formMS = new MaintenanceShelterForm(controllerMS);
             formMS.Show();
         }
     }

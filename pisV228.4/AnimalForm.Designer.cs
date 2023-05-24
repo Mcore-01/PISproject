@@ -136,6 +136,7 @@
             this.Controls.Add(this.AddAFButton);
             this.Controls.Add(this.AFPictureBox);
             this.Name = "AnimalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnimalForm";
             this.Load += new System.EventHandler(this.AnimalForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AFPictureBox)).EndInit();

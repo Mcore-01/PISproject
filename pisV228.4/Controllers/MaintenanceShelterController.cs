@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace pisV228._4
 {
-    public class AnimalController
+    public class MaintenanceShelterController
     {
-        public User user;
+        private User user;
         private PermissonAction PermissonAction;
-        public AnimalController(User user)
+        public MaintenanceShelterController(User user)
         {
             this.user = user;
             PermissonAction = new PermissonAction(user);
         }
-        public void AddAnimalCard(Animal record, AnimalForm formOpened)
+        public void AddMaintenanceShelterCard(MaintenanceShelter record, MaintenanceShelterForm formOpened)
         {
             if (!record.IsCorrect())
             {
                 formOpened.Error("Данные были некорректны!", false);
             }
-            if (!PermissonAction.CanAddAnimal())
+            if (!PermissonAction.CanAddMaintenanceShelter())
             {
-                formOpened.Error("Вы не можете добавлять животных в реестр!", false);
+                formOpened.Error("Вы не можете добавлять содержание в приюте в реестр!", false);
             }
             formOpened.Error("Добавлено", false);
-            DataBase.AddAnimal(record);
+            DataBase.AddMaintenanceShelter(record);
 
         }
-        public List<Animal> GetAnimalCards()
+        /*public List<Animal> GetAnimalCards()
         {
             return DataBase.GetAnimals();
         }
@@ -42,6 +42,6 @@ namespace pisV228._4
         public void SaveAnimalRegister()
         {
             DataBase.WriteDataAnimals();
-        }
+        }*/
     }
 }
