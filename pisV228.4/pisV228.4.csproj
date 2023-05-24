@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="DataBaseFile\DataAnimals - Копировать.txt" />
     <Content Include="DataBaseFile\DataAnimals.txt" />
+    <Content Include="DataBaseFile\DataContracts.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
