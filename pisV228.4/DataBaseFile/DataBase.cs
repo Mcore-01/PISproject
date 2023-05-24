@@ -27,6 +27,13 @@ namespace pisV228._4
             animals.Add(data);
         }
 
+        public static void AddContract(Animal data)
+        {
+            animalID++;
+            data.AnimalID = animalID;
+            animals.Add(data);
+        }
+
         public static List<Animal> GetAnimals()
         {
             return animals;
