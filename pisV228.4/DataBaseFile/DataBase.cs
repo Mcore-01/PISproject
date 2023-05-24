@@ -22,14 +22,14 @@ namespace pisV228._4
 
         public static void AddAnimal(Animal data)
         {
-            animalID++;
+            animalID = 1;
             data.AnimalID = animalID;
             animals.Add(data);
         }
 
         public static List<Animal> GetAnimals()
         {
-            return new List<Animal>();
+            return animals;
         }
 
         public static Animal GetAnimalCard(int id)
