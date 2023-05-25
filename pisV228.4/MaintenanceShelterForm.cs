@@ -45,15 +45,11 @@ namespace pisV228._4
 
         private void AddMSFButton_Click(object sender, EventArgs e)
         {
-            //StringBuilder str = new StringBuilder();
             var data = new List<object>();
             foreach (var item in (this.Controls.OfType<TextBox>()))
             {
-                //str.Append(item.Text);
                 data.Add(item.Text);
             }
-            
-            //MessageBox.Show(str.ToString());
             controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray()), this);
         }
 
@@ -64,7 +60,12 @@ namespace pisV228._4
 
         public void Error(string message, bool close)
         {
+            
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (close)
+            {
+                this.Close();
+            }
         }
     }
 }
