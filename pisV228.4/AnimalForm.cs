@@ -88,6 +88,7 @@ namespace pisV228._4
                 var path = Path.Combine(
                     new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
                 newPath = path + newNameFile;
+
                 try
                 {
                     File.Copy(pathPicture, newPath);
@@ -96,17 +97,15 @@ namespace pisV228._4
                 {
                     newPath += "1";
                     File.Copy(pathPicture, newPath);
+                    newNameFile += "1";
                 }
+
+                newPath = newNameFile;
             }
             data.Add(newPath);
             //MessageBox.Show(str.ToString());
             controller.AddAnimalCard(new Animal(data.ToArray()), this);
         }
-
-
-
-
-
 
         private void LoadImageButton_Click(object sender, EventArgs e)
         {
@@ -127,6 +126,7 @@ namespace pisV228._4
             return pathImage;
             //ShowImage(pathImage);
         }
+
         private void ShowImage(string path)
         {
             pathPicture = path;
