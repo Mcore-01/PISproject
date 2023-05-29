@@ -46,6 +46,7 @@ namespace pisV228._4
         }
         private static List<Animal> ReadDataAnimals()
         {
+            var path = Path.Combine(
                 new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "DataBaseFile\\DataAnimals.txt");
             var readedData = ReadTxt(path)
                 .Select(x=> new Animal(x)).ToList();
