@@ -46,7 +46,8 @@ namespace pisV228._4
         }
         private static List<Animal> ReadDataAnimals()
         {
-            var readedData = ReadTxt(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataAnimals.txt")
+            var path = Path.Combine(new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName, @"\DataBaseFile\DataAnimals.txt");
+            var readedData = ReadTxt(path)
                 .Select(x=> new Animal(x)).ToList();
             animalID = readedData.Max(x=>x.AnimalID);
             return readedData;
@@ -71,13 +72,15 @@ namespace pisV228._4
 
         public static void WriteDataAnimals()
         {
-            WriteData(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataAnimals.txt", animals);
+            var path = Path.Combine(new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName, "\\DataBaseFile\\DataMainShelters.txt");
+            WriteData(path, animals);
             //File.WriteAllLines(, data);
         }
 
         private static List<MaintenanceShelter> ReadDataMS()
         {
-            var readedData = ReadTxt(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataMainShelters.txt")
+            var path = Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "\\DataBaseFile\\DataMainShelters.txt");
+            var readedData = ReadTxt(path)
                 .Select(x => new MaintenanceShelter(x)).ToList();
             msID = readedData.Max(x => x.UniqueIdentifier);
             return readedData;
