@@ -58,7 +58,9 @@ namespace pisV228._4
             if (currentAnimal != null && currentAnimal.Photo != "")
             {
                 LoadImageButton.Visible = false;
-                AFPictureBox.Image = Image.FromFile(currentAnimal.Photo);
+                var path = Path.Combine(
+                    new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
+                AFPictureBox.Image = Image.FromFile(path + currentAnimal.Photo);
                 foreach (var textbox in this.Controls.OfType<TextBox>())
                 {
                     textbox.ReadOnly = true;
@@ -82,7 +84,10 @@ namespace pisV228._4
             if (pathPicture != null && pathPicture != "")
             {
                 var newNameFile = Path.GetFileName(pathPicture);
-                newPath = @"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\" + newNameFile;
+                
+                var path = Path.Combine(
+                    new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
+                newPath = path + newNameFile;
                 try
                 {
                     File.Copy(pathPicture, newPath);
