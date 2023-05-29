@@ -52,6 +52,7 @@
     <Compile Include="AnimalForm.Designer.cs">
       <DependentUpon>AnimalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MaintenanceShelterController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="DataBaseFile\DataBase.cs" />
     <Compile Include="Interface\ICorrectable.cs" />
@@ -111,6 +112,7 @@
     <Folder Include="PictureAnimal\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBaseFile\DataMainShelters.txt" />
     <Content Include="DataBaseFile\DataAnimals - Копировать.txt" />
     <Content Include="DataBaseFile\DataAnimals.txt" />
     <Content Include="DataBaseFile\DataContracts.txt" />

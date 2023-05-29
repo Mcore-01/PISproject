@@ -12,9 +12,11 @@ namespace pisV228._4
 {
     public partial class MaintenanceShelterForm : Form
     {
-        public MaintenanceShelterForm()
+        MaintenanceShelterController controller;
+        public MaintenanceShelterForm(MaintenanceShelterController controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void MaintenanceShelter_Load(object sender, EventArgs e)
@@ -22,6 +24,7 @@ namespace pisV228._4
             var animalType = typeof(MaintenanceShelter);
             var propertys = animalType.GetProperties();
             int y = 0;
+
             for (int i = 0; i < propertys.Length - 1; i++)
             {
                 var labelAtt = propertys[i].GetCustomAttributes(true).OfType<LabelAtt>().First();
@@ -36,6 +39,33 @@ namespace pisV228._4
                 y += 16;
             }
             
+        }
+
+        
+
+        private void AddMSFButton_Click(object sender, EventArgs e)
+        {
+            var data = new List<object>();
+            foreach (var item in (this.Controls.OfType<TextBox>()))
+            {
+                data.Add(item.Text);
+            }
+            controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray()), this);
+        }
+
+        private void CloseMSFButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void Error(string message, bool close)
+        {
+            
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (close)
+            {
+                this.Close();
+            }
         }
     }
 }

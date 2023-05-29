@@ -18,5 +18,9 @@ namespace pisV228._4
         {
             return user.role == "OperatorShelter";
         }
+        public bool CanAddMaintenanceShelter()
+        {
+            return user.role == "OperatorShelter";
+        }
     }
 }

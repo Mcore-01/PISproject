@@ -37,6 +37,21 @@ namespace pisV228._4
         [LabelAtt("Идентификатор муниципального контракта")]
         public int MunicipalContract { get; set; }
 
+        public MaintenanceShelter(object[] data)
+        {
+            UniqueIdentifier = Convert.ToInt32(data[0]);
+            CardAnimalWithoutOwners = Convert.ToInt32(data[1]);
+            ResultAggressivenessCheck = Convert.ToString(data[2]);
+            DateCheck = Convert.ToDateTime(data[3]);
+            FullName = Convert.ToString(data[4]);
+            PositionSpecialist = Convert.ToString(data[5]);
+            Shelter = Convert.ToString(data[6]);
+            DateAdmission = Convert.ToDateTime(data[7]);
+            DateDeparture = Convert.ToDateTime(data[8]);
+            NumberEnclosure = Convert.ToInt32(data[9]);
+            MunicipalContract = Convert.ToInt32(data[10]);
+        }
+
         public bool IsCorrect()
         {
             return true;

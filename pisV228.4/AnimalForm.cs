@@ -13,14 +13,17 @@ namespace pisV228._4
 {
     public partial class AnimalForm : Form
     {
-
+        //private bool IsAddition;
         private AnimalController controller;
+        private MaintenanceShelterController controllerMS;
         private string pathPicture;
         private Animal currentAnimal;
         public AnimalForm(AnimalController controller)
         {
             InitializeComponent();
             this.controller = controller;
+            controllerMS = new MaintenanceShelterController(controller.user);
+            MainShelterGroupBox.Visible = false;
         }
         public AnimalForm(AnimalController controller, Animal currentAnimal)
         {
@@ -55,7 +58,9 @@ namespace pisV228._4
             if (currentAnimal != null && currentAnimal.Photo != "")
             {
                 LoadImageButton.Visible = false;
-                AFPictureBox.Image = Image.FromFile(currentAnimal.Photo);
+                var path = Path.Combine(
+                    new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
+                AFPictureBox.Image = Image.FromFile(path + currentAnimal.Photo);
                 foreach (var textbox in this.Controls.OfType<TextBox>())
                 {
                     textbox.ReadOnly = true;
@@ -79,7 +84,11 @@ namespace pisV228._4
             if (pathPicture != null && pathPicture != "")
             {
                 var newNameFile = Path.GetFileName(pathPicture);
-                newPath = @"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\" + newNameFile;
+                
+                var path = Path.Combine(
+                    new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
+                newPath = path + newNameFile;
+
                 try
                 {
                     File.Copy(pathPicture, newPath);
@@ -88,17 +97,15 @@ namespace pisV228._4
                 {
                     newPath += "1";
                     File.Copy(pathPicture, newPath);
+                    newNameFile += "1";
                 }
+
+                newPath = newNameFile;
             }
             data.Add(newPath);
             //MessageBox.Show(str.ToString());
             controller.AddAnimalCard(new Animal(data.ToArray()), this);
         }
-
-
-
-
-
 
         private void LoadImageButton_Click(object sender, EventArgs e)
         {
@@ -119,6 +126,7 @@ namespace pisV228._4
             return pathImage;
             //ShowImage(pathImage);
         }
+
         private void ShowImage(string path)
         {
             pathPicture = path;
@@ -161,7 +169,7 @@ namespace pisV228._4
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)
         {
-            var formMS = new MaintenanceShelterForm();
+            var formMS = new MaintenanceShelterForm(controllerMS);
             formMS.Show();
         }
     }

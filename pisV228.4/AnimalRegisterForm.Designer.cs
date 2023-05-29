@@ -94,6 +94,7 @@
             this.Controls.Add(this.ARDataGridView);
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnimalRegisterForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AnimalRegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.AnimalRegisterForm_Load);
