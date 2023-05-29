@@ -47,7 +47,7 @@ namespace pisV228._4
         private static List<Animal> ReadDataAnimals()
         {
             var path = Path.Combine(new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName, @"\DataBaseFile\DataAnimals.txt");
-            var readedData = ReadTxt(path)
+            var readedData = ReadTxt(path) //
                 .Select(x=> new Animal(x)).ToList();
             animalID = readedData.Max(x=>x.AnimalID);
             return readedData;
@@ -79,7 +79,12 @@ namespace pisV228._4
 
         private static List<MaintenanceShelter> ReadDataMS()
         {
+<<<<<<< HEAD
             var path = Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "\\DataBaseFile\\DataMainShelters.txt");
+=======
+            var path = Path.Combine(
+                new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "DataMainShelters.txt");
+>>>>>>> Прописан относительный путь к файлам
             var readedData = ReadTxt(path)
                 .Select(x => new MaintenanceShelter(x)).ToList();
             msID = readedData.Max(x => x.UniqueIdentifier);
