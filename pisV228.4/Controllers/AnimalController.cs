@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace pisV228._4
 {
@@ -15,17 +16,23 @@ namespace pisV228._4
             this.user = user;
             PermissonAction = new PermissonAction(user);
         }
-        public void AddAnimalCard(Animal record, AnimalForm formOpened)
+        public void AddAnimalCard(Animal record)
         {
+            // форма знает о контроллере, но обратно связи нет
+
             if (record.IsCorrect())
             {
-                formOpened.Error("Данные были некорректны!", false);
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             if (!PermissonAction.CanAddAnimal())
             {
-                formOpened.Error("Вы не можете добавлять животных в реестр!", false);
+                MessageBox.Show("Вы не можете добавлять животных в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            formOpened.Error("Добавлено", true);
+
+            MessageBox.Show("Добавлено", "Животное", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             DataBase.AddAnimal(record);
 
         }

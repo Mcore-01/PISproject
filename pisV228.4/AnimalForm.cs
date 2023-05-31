@@ -30,6 +30,7 @@ namespace pisV228._4
             InitializeComponent();
             this.controller = controller;
             this.currentAnimal = currentAnimal;
+            controllerMS = new MaintenanceShelterController(controller.user);
             buttonAFgroupbox.Visible = false;
         }
 
@@ -107,8 +108,7 @@ namespace pisV228._4
             }
             data[0] = 1;
             data.Add(newPath);
-            //MessageBox.Show(str.ToString());
-            controller.AddAnimalCard(new Animal(data.ToArray()), this);
+            controller.AddAnimalCard(new Animal(data.ToArray()));
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)
@@ -168,7 +168,9 @@ namespace pisV228._4
 
         private void OpenMainShelterButton_Click(object sender, EventArgs e)
         {
-            
+            var MaintenanceShelters = controllerMS.GetMaintenanceShelterCards();
+            var formMS = new MaintenanceShelterForm(controllerMS, MaintenanceShelters);
+            formMS.Show();
         }
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)

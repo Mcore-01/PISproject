@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,22 @@ namespace pisV228._4
     public partial class MaintenanceShelterForm : Form
     {
         MaintenanceShelterController controller;
+        List<MaintenanceShelter> maintenanceShelters;
+        int currentPage;
         public MaintenanceShelterForm(MaintenanceShelterController controller)
         {
             InitializeComponent();
             this.controller = controller;
+            PrevButtonMS.Visible = false;
+            NextButtonMS.Visible = false;
         }
-
+        public MaintenanceShelterForm(MaintenanceShelterController controller, List<MaintenanceShelter> list)
+        {
+            InitializeComponent();
+            this.controller = controller;
+            maintenanceShelters = list;
+            currentPage = 0;
+        }
         private void MaintenanceShelter_Load(object sender, EventArgs e)
         {
             var animalType = typeof(MaintenanceShelter);
@@ -32,13 +43,24 @@ namespace pisV228._4
                 label.Text = labelAtt.LabelText;
                 //label.Text = propertys[i].Name;
                 var textbox = new TextBox { Top = y, Left = label.Width, Width = (this.ClientSize.Width), Height = 16 };
+                if (maintenanceShelters != null && maintenanceShelters.Count != 0)
+                {
+                    textbox.Text = propertys[i].GetValue(maintenanceShelters[currentPage]).ToString();
+                }
                 //textbox.Text = propertys[i].GetValue(currentAnimal).ToString();
                 textbox.Name = $"{propertys[i].Name}TB";
                 this.Controls.Add(label);
                 this.Controls.Add(textbox);
                 y += 16;
             }
-            
+            if (maintenanceShelters != null && maintenanceShelters.Count != 0)
+            {
+                foreach (var textbox in this.Controls.OfType<TextBox>())
+                {
+                    textbox.ReadOnly = true;
+                }
+            }
+
         }
 
         
@@ -65,6 +87,17 @@ namespace pisV228._4
             if (close)
             {
                 this.Close();
+            }
+        }
+
+        private void NetxButtonMS_Click(object sender, EventArgs e)
+        {
+            if (currentPage <= maintenanceShelters.Count -1)
+            {
+                foreach (var item in (this.Controls.OfType<TextBox>()))
+                {
+
+                }
             }
         }
     }

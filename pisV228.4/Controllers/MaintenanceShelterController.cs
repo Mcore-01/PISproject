@@ -29,11 +29,11 @@ namespace pisV228._4
             DataBase.AddMaintenanceShelter(record);
 
         }
-        /*public List<Animal> GetAnimalCards()
+        public List<MaintenanceShelter> GetMaintenanceShelterCards()
         {
-            return DataBase.GetAnimals();
+            return DataBase.GetMaintenanceShelter();
         }
-
+/*
         public Animal GetAnimalCard(int animalID)
         {
             return DataBase.GetAnimalCard(animalID);

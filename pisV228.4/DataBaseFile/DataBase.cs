@@ -32,6 +32,10 @@ namespace pisV228._4
         {
             return animals;
         }
+        public static List<MaintenanceShelter> GetMaintenanceShelter()
+        {
+            return mainShelters;
+        }
 
         public static Animal GetAnimalCard(int id)
         {
