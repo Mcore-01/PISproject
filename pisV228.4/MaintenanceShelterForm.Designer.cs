@@ -39,10 +39,9 @@
             this.AddMSFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddMSFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddMSFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddMSFButton.Location = new System.Drawing.Point(632, 560);
-            this.AddMSFButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AddMSFButton.Location = new System.Drawing.Point(421, 364);
             this.AddMSFButton.Name = "AddMSFButton";
-            this.AddMSFButton.Size = new System.Drawing.Size(154, 52);
+            this.AddMSFButton.Size = new System.Drawing.Size(103, 34);
             this.AddMSFButton.TabIndex = 1;
             this.AddMSFButton.Text = "Добавить";
             this.AddMSFButton.UseVisualStyleBackColor = false;
@@ -53,10 +52,9 @@
             this.CloseMSFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CloseMSFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CloseMSFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CloseMSFButton.Location = new System.Drawing.Point(820, 560);
-            this.CloseMSFButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CloseMSFButton.Location = new System.Drawing.Point(547, 364);
             this.CloseMSFButton.Name = "CloseMSFButton";
-            this.CloseMSFButton.Size = new System.Drawing.Size(154, 52);
+            this.CloseMSFButton.Size = new System.Drawing.Size(103, 34);
             this.CloseMSFButton.TabIndex = 4;
             this.CloseMSFButton.Text = "Отмена";
             this.CloseMSFButton.UseVisualStyleBackColor = false;
@@ -67,23 +65,22 @@
             this.PrevButtonMS.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.PrevButtonMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PrevButtonMS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PrevButtonMS.Location = new System.Drawing.Point(37, 432);
-            this.PrevButtonMS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PrevButtonMS.Location = new System.Drawing.Point(25, 281);
             this.PrevButtonMS.Name = "PrevButtonMS";
-            this.PrevButtonMS.Size = new System.Drawing.Size(154, 52);
+            this.PrevButtonMS.Size = new System.Drawing.Size(103, 34);
             this.PrevButtonMS.TabIndex = 5;
             this.PrevButtonMS.Text = "Предыдущая";
             this.PrevButtonMS.UseVisualStyleBackColor = false;
+            this.PrevButtonMS.Click += new System.EventHandler(this.PrevButtonMS_Click);
             // 
             // NextButtonMS
             // 
             this.NextButtonMS.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.NextButtonMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NextButtonMS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.NextButtonMS.Location = new System.Drawing.Point(1003, 432);
-            this.NextButtonMS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NextButtonMS.Location = new System.Drawing.Point(669, 281);
             this.NextButtonMS.Name = "NextButtonMS";
-            this.NextButtonMS.Size = new System.Drawing.Size(154, 52);
+            this.NextButtonMS.Size = new System.Drawing.Size(103, 34);
             this.NextButtonMS.TabIndex = 6;
             this.NextButtonMS.Text = "Следующая";
             this.NextButtonMS.UseVisualStyleBackColor = false;
@@ -91,14 +88,13 @@
             // 
             // MaintenanceShelterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.NextButtonMS);
             this.Controls.Add(this.PrevButtonMS);
             this.Controls.Add(this.CloseMSFButton);
             this.Controls.Add(this.AddMSFButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MaintenanceShelterForm";
             this.Text = "MaintenanceShelter";
             this.Load += new System.EventHandler(this.MaintenanceShelter_Load);

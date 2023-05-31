@@ -92,13 +92,28 @@ namespace pisV228._4
 
         private void NetxButtonMS_Click(object sender, EventArgs e)
         {
-            if (currentPage <= maintenanceShelters.Count -1)
-            {
-                foreach (var item in (this.Controls.OfType<TextBox>()))
-                {
+            changePage(1);
+        }
 
+        private void changePage(int iterate)
+        {
+            var animalType = typeof(MaintenanceShelter);
+            var propertys = animalType.GetProperties();
+            if (currentPage + iterate >=0 && currentPage + iterate < maintenanceShelters.Count)
+            {
+                currentPage+=iterate;
+                var currentCard = maintenanceShelters[currentPage];
+                var textBoxs = (this.Controls.OfType<TextBox>());
+                for (int i = 0; i < textBoxs.Count(); i++)
+                {
+                    textBoxs.ElementAt(i).Text = propertys[i].GetValue(currentCard).ToString();
                 }
             }
+        }
+
+        private void PrevButtonMS_Click(object sender, EventArgs e)
+        {
+            changePage(-1);
         }
     }
 }

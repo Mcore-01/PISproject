@@ -32,9 +32,9 @@ namespace pisV228._4
         {
             return animals;
         }
-        public static List<MaintenanceShelter> GetMaintenanceShelter()
+        public static List<MaintenanceShelter> GetMaintenanceShelter(Animal animal)
         {
-            return mainShelters;
+            return mainShelters.Where(x => x.CardAnimalWithoutOwners == animal.AnimalID).ToList();
         }
 
         public static Animal GetAnimalCard(int id)

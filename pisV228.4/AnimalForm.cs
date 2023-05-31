@@ -168,7 +168,7 @@ namespace pisV228._4
 
         private void OpenMainShelterButton_Click(object sender, EventArgs e)
         {
-            var MaintenanceShelters = controllerMS.GetMaintenanceShelterCards();
+            var MaintenanceShelters = controllerMS.GetMaintenanceShelterCards(currentAnimal);
             var formMS = new MaintenanceShelterForm(controllerMS, MaintenanceShelters);
             formMS.Show();
         }
