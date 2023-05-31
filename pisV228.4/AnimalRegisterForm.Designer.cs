@@ -42,7 +42,7 @@
             this.AnimalRegiterGBox.Controls.Add(this.AddARButton);
             this.AnimalRegiterGBox.Location = new System.Drawing.Point(559, 36);
             this.AnimalRegiterGBox.Name = "AnimalRegiterGBox";
-            this.AnimalRegiterGBox.Size = new System.Drawing.Size(262, 258);
+            this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 173);
             this.AnimalRegiterGBox.TabIndex = 0;
             this.AnimalRegiterGBox.TabStop = false;
             // 
@@ -95,7 +95,7 @@
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AnimalRegisterForm";
+            this.Text = "Результаты поиска";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AnimalRegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.AnimalRegisterForm_Load);
             this.AnimalRegiterGBox.ResumeLayout(false);

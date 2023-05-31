@@ -17,7 +17,7 @@ namespace pisV228._4
         }
         public void AddAnimalCard(Animal record, AnimalForm formOpened)
         {
-            if (!record.IsCorrect())
+            if (record.IsCorrect())
             {
                 formOpened.Error("Данные были некорректны!", false);
             }
@@ -25,7 +25,7 @@ namespace pisV228._4
             {
                 formOpened.Error("Вы не можете добавлять животных в реестр!", false);
             }
-            formOpened.Error("Добавлено", false);
+            formOpened.Error("Добавлено", true);
             DataBase.AddAnimal(record);
 
         }
