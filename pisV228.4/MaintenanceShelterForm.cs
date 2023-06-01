@@ -29,6 +29,8 @@ namespace pisV228._4
             this.controller = controller;
             maintenanceShelters = list;
             currentPage = 0;
+            AddMSFButton.Visible = false;
+            CloseMSFButton.Visible = false;
         }
         private void MaintenanceShelter_Load(object sender, EventArgs e)
         {
