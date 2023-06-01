@@ -71,6 +71,7 @@
             this.OpenMCRButton.TabIndex = 1;
             this.OpenMCRButton.Text = "Открыть";
             this.OpenMCRButton.UseVisualStyleBackColor = false;
+            this.OpenMCRButton.Click += new System.EventHandler(this.OpenMCRButton_Click);
             // 
             // AddMCRButton
             // 

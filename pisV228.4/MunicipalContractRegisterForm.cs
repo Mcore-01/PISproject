@@ -42,5 +42,17 @@ namespace pisV228._4
         {
 
         }
+
+        private void OpenMCRButton_Click(object sender, EventArgs e)
+        {
+            if (MCRDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(MCRDataGridView.CurrentRow.Cells[0].Value);
+            var currentOrganization = contracts.First(x => x.MunicipalContractID == id);
+            var formOrg = new MunicipalContractForm(controller, currentOrganization);
+            formOrg.Show();
+        }
     }
 }

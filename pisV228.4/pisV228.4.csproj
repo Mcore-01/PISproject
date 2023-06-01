@@ -113,6 +113,9 @@
     <EmbeddedResource Include="MaintenanceShelterForm.resx">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MunicipalContractForm.resx">
+      <DependentUpon>MunicipalContractForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MunicipalContractRegisterForm.resx">
       <DependentUpon>MunicipalContractRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
