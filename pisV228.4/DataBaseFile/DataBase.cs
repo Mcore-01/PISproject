@@ -29,7 +29,13 @@ namespace pisV228._4
             data.AnimalID = animalID;
             animals.Add(data);
         }
-
+        
+        public static void AddOrganization(Organization data)
+        {
+            orgID++;
+            data.OrganizationID = orgID;
+            organizations.Add(data);
+        }
         public static List<Animal> GetAnimals()
         {
             return animals;

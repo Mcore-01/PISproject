@@ -32,7 +32,7 @@ namespace pisV228._4
             var organizationType = typeof(Organization);
             var propertys = organizationType.GetProperties();
             int y = 0;
-            for (int i = 0; i < propertys.Length - 1; i++)
+            for (int i = 0; i < propertys.Length; i++)
             {
 
                 var labelAtt = propertys[i].GetCustomAttributes(true).OfType<LabelAtt>().First();
@@ -55,11 +55,19 @@ namespace pisV228._4
                     textbox.ReadOnly = true;
                 }
             }
+            this.Controls.OfType<TextBox>().First().ReadOnly = true;
         }
 
         private void AddOFButton_Click(object sender, EventArgs e)
         {
-
+            var data = new List<object>();
+            foreach (var item in (this.Controls.OfType<TextBox>()))
+            {
+                //str.Append(item.Text);
+                data.Add(item.Text);
+            }
+            data[0] = 1;
+            controller.AddOrganizationCard(new Organization(data.ToArray()));
         }
     }
 }
