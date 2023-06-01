@@ -54,8 +54,10 @@
     </Compile>
     <Compile Include="Controllers\MaintenanceShelterController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\MunicipalContractController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="DataBaseFile\DataBase.cs" />
+    <Compile Include="Interface\IController.cs" />
     <Compile Include="Interface\ICorrectable.cs" />
     <Compile Include="LabelText.cs" />
     <Compile Include="MainClasss\Animal.cs" />
@@ -75,6 +77,18 @@
     </Compile>
     <Compile Include="MaintenanceShelterForm.Designer.cs">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MunicipalContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MunicipalContractForm.Designer.cs">
+      <DependentUpon>MunicipalContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MunicipalContractRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MunicipalContractRegisterForm.Designer.cs">
+      <DependentUpon>MunicipalContractRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OrganizationForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MaintenanceShelterForm.resx">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MunicipalContractRegisterForm.resx">
+      <DependentUpon>MunicipalContractRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrganizationForm.resx">
       <DependentUpon>OrganizationForm.cs</DependentUpon>

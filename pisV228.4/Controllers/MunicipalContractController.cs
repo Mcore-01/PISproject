@@ -5,30 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace pisV228._4
 {
-    public class OrganizationController : IController<Organization>
+    public class MunicipalContractController : IController<MunicipalContract>
     {
         public User user;
         private PermissonAction PermissonAction;
-        public OrganizationController(User user)
+        public MunicipalContractController(User user)
         {
             this.user = user;
             PermissonAction = new PermissonAction(user);
         }
-
-        public List<Organization> GetCards()
+        public List<MunicipalContract> GetCards()
         {
-            return DataBase.GetOrganizations();
+            return DataBase.GetMunicipalContracts();
         }
 
-        public Organization GetCard(int OrganizationID)
+        public MunicipalContract GetCard(int id)
         {
-            return DataBase.GetOrganizationCard(OrganizationID);
+            return DataBase.GetMunicipalContractCard(id);
         }
 
-        public void AddCard(Organization record)
+        public void AddCard(MunicipalContract record)
         {
             if (record.IsCorrect())
             {
@@ -37,15 +35,13 @@ namespace pisV228._4
             }
             if (!PermissonAction.CanAddAnimal())
             {
-                MessageBox.Show("Вы не можете добавлять организации в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Вы не можете добавлять контракты в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Добавлена", "Организация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Добавлен", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            DataBase.AddOrganization(record);
+            DataBase.AddMunicipalContract(record);
         }
-
-        
     }
 }

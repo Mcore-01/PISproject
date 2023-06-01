@@ -36,14 +36,24 @@ namespace pisV228._4
             data.OrganizationID = orgID;
             organizations.Add(data);
         }
+        public static void AddMunicipalContract(MunicipalContract data)
+        {
+            mcID++;
+            data.MunicipalContractID = mcID;
+            municipalContracts.Add(data);
+        }
         public static List<Animal> GetAnimals()
         {
             return animals;
         }
-
+        
         public static List<Organization> GetOrganizations()
         {
             return organizations;
+        }
+        public static List<MunicipalContract> GetMunicipalContracts()
+        {
+            return municipalContracts;
         }
         public static List<MaintenanceShelter> GetMaintenanceShelter(Animal animal)
         {
@@ -57,6 +67,11 @@ namespace pisV228._4
         public static Organization GetOrganizationCard(int id)
         {
             return organizations.First(x => x.OrganizationID == id);
+        }
+
+        public static MunicipalContract GetMunicipalContractCard(int id)
+        {
+            return municipalContracts.First(x => x.MunicipalContractID == id);
         }
         private static List<object[]> ReadTxt(string path)
         {

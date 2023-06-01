@@ -67,7 +67,7 @@ namespace pisV228._4
                 data.Add(item.Text);
             }
             data[0] = 1;
-            controller.AddOrganizationCard(new Organization(data.ToArray()));
+            controller.AddCard(new Organization(data.ToArray()));
         }
     }
 }

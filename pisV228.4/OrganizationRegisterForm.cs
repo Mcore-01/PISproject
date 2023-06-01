@@ -32,7 +32,7 @@ namespace pisV228._4
         }
         private void UpdateRegister()
         {
-            organizations = controller.GetOrganizationCards();
+            organizations = controller.GetCards();
             foreach (var e in organizations)
             {
                 ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
