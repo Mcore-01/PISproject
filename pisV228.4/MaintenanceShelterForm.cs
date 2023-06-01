@@ -94,10 +94,10 @@ namespace pisV228._4
 
         private void NetxButtonMS_Click(object sender, EventArgs e)
         {
-            changePage(1);
+            ChangePage(1);
         }
 
-        private void changePage(int iterate)
+        private void ChangePage(int iterate)
         {
             var animalType = typeof(MaintenanceShelter);
             var propertys = animalType.GetProperties();
@@ -115,7 +115,8 @@ namespace pisV228._4
 
         private void PrevButtonMS_Click(object sender, EventArgs e)
         {
-            changePage(-1);
+            ChangePage(-1);
         }
+
     }
 }

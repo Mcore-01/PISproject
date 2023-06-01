@@ -95,7 +95,7 @@
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Результаты поиска";
+            this.Text = "Результаты поиска животного";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AnimalRegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.AnimalRegisterForm_Load);
             this.AnimalRegiterGBox.ResumeLayout(false);

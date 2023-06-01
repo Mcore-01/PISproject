@@ -26,6 +26,16 @@ namespace pisV228._4
         [LabelAtt("Заказчик")]
         public string Customer { get; set; }
 
+        public MunicipalContract(object[] data)
+        {
+            MunicipalContractID = Convert.ToInt32(data[0]);
+            Number = Convert.ToInt32(data[1]);
+            CostDayMaintenance = Convert.ToInt32(data[2]);
+            DateConclusion = Convert.ToDateTime(data[3]);
+            DateAction = Convert.ToDateTime(data[4]);
+            Contractor = data[5].ToString();
+            Customer = data[6].ToString();
+        }
         public bool IsCorrect()
         {
             return true;

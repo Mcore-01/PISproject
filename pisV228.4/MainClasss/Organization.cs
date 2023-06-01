@@ -22,11 +22,23 @@ namespace pisV228._4
         [LabelAtt("Тип организиция")]
         public string TypeOrganization { get; set; }
 
-        [LabelAtt("Населенный пункт")]
+        [LabelAtt("ИП/Юридическое лицо")]
         public string TypeLegalEntity { get; set; }
 
         [LabelAtt("Населенный пункт")]
         public string Locality { get; set; }
+
+        public Organization(object[] data)
+        {
+            OrganizationID = Convert.ToInt32(data[0]);
+            Name = data[1].ToString();
+            INN = data[2].ToString();
+            KPP = data[3].ToString();
+            Address = data[4].ToString();
+            TypeOrganization = data[5].ToString();
+            TypeLegalEntity = data[6].ToString();
+            Locality = data[7].ToString();  
+        }
 
         public bool IsCorrect()
         {
