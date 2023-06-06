@@ -42,6 +42,24 @@ namespace pisV228._4
             data.MunicipalContractID = mcID;
             municipalContracts.Add(data);
         }
+        public static void ChangeAnimal(Animal animal)
+        {
+            int id = animals.FindIndex(x => x.AnimalID == animal.AnimalID);
+            var animalType = typeof(Animal);
+            var propertys = animalType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(animals[id], propertys[i].GetValue(animal));
+
+            //animals[id].Category = animal.Category;
+            //animals[id].ChipNumber = animal.ChipNumber;
+            //animals[id].Gender = animal.Gender;
+            //animals[id].Locality = animal.Locality;
+            //animals[id].NameAnimal = animal.NameAnimal;
+            //animals[id].Photo = animal.Photo;
+            //animals[id].PresenceSingsOwner = animal.PresenceSingsOwner;
+            //animals[id].SpecialSings = animal.SpecialSings;
+            //animals[id].YearBirth = animal.YearBirth;
+        }
         public static List<Animal> GetAnimals()
         {
             return animals;

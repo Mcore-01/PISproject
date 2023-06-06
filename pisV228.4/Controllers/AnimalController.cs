@@ -36,6 +36,21 @@ namespace pisV228._4
             DataBase.AddAnimal(record);
 
         }
+        public bool CanChangeCard()
+        {
+            return PermissonAction.CanChangeCard();
+        }
+        public void ChangeAnimalCard(Animal record)
+        {
+            if (record.IsCorrect())
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Карточка изменена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DataBase.ChangeAnimal(record);
+        }
         public List<Animal> GetAnimalCards()
         {
             return DataBase.GetAnimals();

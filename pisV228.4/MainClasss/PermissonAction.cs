@@ -22,5 +22,9 @@ namespace pisV228._4
         {
             return user.role == "OperatorShelter";
         }
+        public bool CanChangeCard()
+        {
+            return user.role == "OperatorShelter";
+        }
     }
 }
