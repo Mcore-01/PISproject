@@ -11,6 +11,17 @@ namespace pisV228._4
     {
         private static int animalID;
         private static int msID;
+        private static string userLogin;
+        private static string userPassword;
+        private static string role;
+        private static int municipalContractID;
+        public static int number;
+        public static decimal costDayMaintenance;
+        public static DateTime dateConclusion;
+        public static DateTime dateAction;
+        public static string contractor;
+        public static string customer;
+
         private static List<Animal> animals = ReadDataAnimals(); /*= new List<Animal>()
         {
             new Animal(new object[]{1, "Матмассы", "Собака", "М", "01.01.2012", 1234, "Боня", "Черно-белая", "Ошейник", @"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\PictureAnimal\QPBaStuDUlw.jpg"})
@@ -21,6 +32,27 @@ namespace pisV228._4
 
         public static List<MunicipalContract> municipalContracts = new List<MunicipalContract>();
 
+        public static List<User> users = new List<User>();
+
+        public static void AddUser(User user)
+        {
+            user.login = userLogin;
+            user.password = userPassword;
+            user.role = role;
+            users.Add(user);
+        }
+
+        public static User GetUser(string login, string password)
+        {
+            for(int i = 0; i < users.Count; i++)
+            {
+                if((users[i].login == login) && (users[i].password == password))
+                {
+                    return users[i];
+                }              
+            }
+            throw new Exception("Данные введены неверно или пользователя не существует!");
+        }
         public static void AddAnimal(Animal data)
         {
             animalID++;
@@ -46,7 +78,7 @@ namespace pisV228._4
         }
         private static List<Animal> ReadDataAnimals()
         {
-            var readedData = ReadTxt(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataAnimals.txt")
+            var readedData = ReadTxt("DataAnimals.txt")
                 .Select(x=> new Animal(x)).ToList();
             animalID = readedData.Max(x=>x.AnimalID);
             return readedData;
@@ -71,13 +103,13 @@ namespace pisV228._4
 
         public static void WriteDataAnimals()
         {
-            WriteData(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataAnimals.txt", animals);
+            WriteData("DataAnimal.txt", animals);
             //File.WriteAllLines(, data);
         }
 
         private static List<MaintenanceShelter> ReadDataMS()
         {
-            var readedData = ReadTxt(@"C:\Users\mk19\source\repos\pisV228.4\pisV228.4\DataBaseFile\DataMainShelters.txt")
+            var readedData = ReadTxt("DataMainShelters.txt")
                 .Select(x => new MaintenanceShelter(x)).ToList();
             msID = readedData.Max(x => x.UniqueIdentifier);
             return readedData;
@@ -104,6 +136,28 @@ namespace pisV228._4
             msID++;
             data.UniqueIdentifier = msID;
             mainShelters.Add(data);
+        }
+
+        public static List<MaintenanceShelter> GetMaintenanceShelter()
+        {
+            return mainShelters;
+        }
+
+        public static void AddMunicipalContract(MunicipalContract contract)
+        {
+            municipalContractID++;
+            contract.Contractor = contractor;
+            contract.CostDayMaintenance = costDayMaintenance;
+            contract.Customer = customer;
+            contract.DateAction = dateAction;
+            contract.DateConclusion = dateConclusion;
+            contract.Number = number;
+            municipalContracts.Add(contract);
+        }
+
+        public static List<MunicipalContract> GetMunicipalContract()
+        {
+            return municipalContracts;
         }
     }
 }

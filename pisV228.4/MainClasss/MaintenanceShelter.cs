@@ -28,7 +28,7 @@ namespace pisV228._4
         [LabelAtt("Дата поступления")]
         public DateTime DateAdmission { get; set; }
 
-        [LabelAtt("Дата отбытие")]
+        [LabelAtt("Дата отбытия")]
         public DateTime DateDeparture { get; set; }
 
         [LabelAtt("Номер вольера")]
@@ -37,6 +37,8 @@ namespace pisV228._4
         [LabelAtt("Идентификатор муниципального контракта")]
         public int MunicipalContract { get; set; }
 
+        [LabelAtt("Город")]
+        public string City{ get; set; }
         public MaintenanceShelter(object[] data)
         {
             UniqueIdentifier = Convert.ToInt32(data[0]);

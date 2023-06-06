@@ -45,7 +45,7 @@ namespace pisV228._4
             NameAnimal = Convert.ToString(data[6]);
             SpecialSings = Convert.ToString(data[7]);
             PresenceSingsOwner = Convert.ToString(data[8]);
-            Photo = Convert.ToString(data[9]);
+            //Photo = Convert.ToString(data[9]);
         }
         public bool IsCorrect()
         {

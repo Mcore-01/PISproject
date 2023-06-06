@@ -58,7 +58,7 @@ namespace pisV228._4
             if (currentAnimal != null && currentAnimal.Photo != "")
             {
                 LoadImageButton.Visible = false;
-                AFPictureBox.Image = Image.FromFile(currentAnimal.Photo);
+               // AFPictureBox.Image = Image.FromFile(currentAnimal.Photo);
                 foreach (var textbox in this.Controls.OfType<TextBox>())
                 {
                     textbox.ReadOnly = true;
@@ -159,7 +159,7 @@ namespace pisV228._4
 
         private void OpenMainShelterButton_Click(object sender, EventArgs e)
         {
-            
+    
         }
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)
