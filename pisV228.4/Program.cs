@@ -17,7 +17,9 @@ namespace pisV228._4
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             User user = new User("login", "password", "OperatorShelter");
-            Application.Run(new MunicipalContractRegisterForm(user));
+            Application.Run(new OrganizationRegisterForm(user));
+            //Application.Run(new AnimalRegisterForm(user));
+            //Application.Run(new MunicipalContractRegisterForm(user));
         }
     }
 }

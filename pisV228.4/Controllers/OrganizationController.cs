@@ -46,6 +46,21 @@ namespace pisV228._4
             DataBase.AddOrganization(record);
         }
 
-        
+        internal bool CanChangeCard()
+        {
+            return PermissonAction.CanChangeCard();
+        }
+
+        internal void ChangeOrganization(Organization record)
+        {
+            if (!record.IsCorrect())
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Карточка изменена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DataBase.ChangeOrganization(record);
+        }
     }
 }

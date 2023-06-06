@@ -61,6 +61,16 @@ namespace pisV228._4
             //animals[id].YearBirth = animal.YearBirth;
         }
 
+        internal static void ChangeOrganization(Organization record)
+        {
+            int id = organizations.FindIndex(
+                x => x.OrganizationID == record.OrganizationID);
+            var organizationType = typeof(Organization);
+            var propertys = organizationType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(organizations[id], propertys[i].GetValue(record));
+        }
+
         internal static void ChangeMunicipalContract(MunicipalContract record)
         {
             int id = municipalContracts.FindIndex(

@@ -30,19 +30,27 @@ namespace pisV228._4
 
         public Organization(object[] data)
         {
-            OrganizationID = Convert.ToInt32(data[0]);
-            Name = data[1].ToString();
-            INN = data[2].ToString();
-            KPP = data[3].ToString();
-            Address = data[4].ToString();
-            TypeOrganization = data[5].ToString();
-            TypeLegalEntity = data[6].ToString();
-            Locality = data[7].ToString();  
+            try
+            {
+                OrganizationID = Convert.ToInt32(data[0]);
+                Name = data[1].ToString();
+                INN = data[2].ToString();
+                KPP = data[3].ToString();
+                Address = data[4].ToString();
+                TypeOrganization = data[5].ToString();
+                TypeLegalEntity = data[6].ToString();
+                Locality = data[7].ToString();
+            }
+            catch
+            {
+                IsCorrectCard = false;
+            }
         }
 
         public bool IsCorrect()
         {
-            return false;
+            return IsCorrectCard;
         }
+        private bool IsCorrectCard = true;
     }
 }
