@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace pisV228._4
 {
-    public class AnimalController
+    public class AnimalController : IController<Animal>
     {
         public User user;
         private PermissonAction PermissonAction;
@@ -16,7 +16,7 @@ namespace pisV228._4
             this.user = user;
             PermissonAction = new PermissonAction(user);
         }
-        public void AddAnimalCard(Animal record)
+        public void AddCard(Animal record)
         {
             // форма знает о контроллере, но обратно связи нет
 
@@ -36,12 +36,12 @@ namespace pisV228._4
             DataBase.AddAnimal(record);
 
         }
-        public List<Animal> GetAnimalCards()
+        public List<Animal> GetCards()
         {
             return DataBase.GetAnimals();
         }
 
-        public Animal GetAnimalCard(int animalID)
+        public Animal GetCard(int animalID)
         {
             return DataBase.GetAnimalCard(animalID);
         }
@@ -49,6 +49,11 @@ namespace pisV228._4
         public void SaveAnimalRegister()
         {
             DataBase.WriteDataAnimals();
+        }
+
+        public void RemoveCard(int id)
+        {
+            DataBase.RemoveAnimalCard(id);
         }
     }
 }

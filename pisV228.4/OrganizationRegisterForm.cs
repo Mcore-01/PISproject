@@ -69,5 +69,16 @@ namespace pisV228._4
             var formOrg = new OrganizationForm(controller, currentOrganization);
             formOrg.Show();
         }
+
+        private void RemoveORButton_Click(object sender, EventArgs e)
+        {
+            if (ORDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(ORDataGridView.CurrentRow.Cells[0].Value);
+            ORDataGridView.CurrentRow.Visible = false;
+            controller.RemoveCard(id);
+        }
     }
 }

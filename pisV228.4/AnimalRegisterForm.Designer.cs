@@ -32,17 +32,19 @@
             this.OpenARButton = new System.Windows.Forms.Button();
             this.AddARButton = new System.Windows.Forms.Button();
             this.ARDataGridView = new System.Windows.Forms.DataGridView();
+            this.RemoveARButton = new System.Windows.Forms.Button();
             this.AnimalRegiterGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // AnimalRegiterGBox
             // 
+            this.AnimalRegiterGBox.Controls.Add(this.RemoveARButton);
             this.AnimalRegiterGBox.Controls.Add(this.OpenARButton);
             this.AnimalRegiterGBox.Controls.Add(this.AddARButton);
             this.AnimalRegiterGBox.Location = new System.Drawing.Point(559, 36);
             this.AnimalRegiterGBox.Name = "AnimalRegiterGBox";
-            this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 173);
+            this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 213);
             this.AnimalRegiterGBox.TabIndex = 0;
             this.AnimalRegiterGBox.TabStop = false;
             // 
@@ -86,6 +88,19 @@
             this.ARDataGridView.Size = new System.Drawing.Size(431, 530);
             this.ARDataGridView.TabIndex = 1;
             // 
+            // RemoveARButton
+            // 
+            this.RemoveARButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RemoveARButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveARButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RemoveARButton.Location = new System.Drawing.Point(60, 156);
+            this.RemoveARButton.Name = "RemoveARButton";
+            this.RemoveARButton.Size = new System.Drawing.Size(103, 34);
+            this.RemoveARButton.TabIndex = 2;
+            this.RemoveARButton.Text = "Удалить";
+            this.RemoveARButton.UseVisualStyleBackColor = false;
+            this.RemoveARButton.Click += new System.EventHandler(this.RemoveARButton_Click);
+            // 
             // AnimalRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +125,7 @@
         private System.Windows.Forms.Button OpenARButton;
         private System.Windows.Forms.Button AddARButton;
         private System.Windows.Forms.DataGridView ARDataGridView;
+        private System.Windows.Forms.Button RemoveARButton;
     }
 }
 

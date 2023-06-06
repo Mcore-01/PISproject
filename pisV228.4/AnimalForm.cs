@@ -108,7 +108,7 @@ namespace pisV228._4
             }
             data[0] = 1;
             data.Add(newPath);
-            controller.AddAnimalCard(new Animal(data.ToArray()));
+            controller.AddCard(new Animal(data.ToArray()));
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@
             this.MContractRegisterGBox = new System.Windows.Forms.GroupBox();
             this.OpenMCRButton = new System.Windows.Forms.Button();
             this.AddMCRButton = new System.Windows.Forms.Button();
+            this.RemoveMCRButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MCRDataGridView)).BeginInit();
             this.MContractRegisterGBox.SuspendLayout();
             this.SuspendLayout();
@@ -52,11 +53,12 @@
             // 
             // MContractRegisterGBox
             // 
+            this.MContractRegisterGBox.Controls.Add(this.RemoveMCRButton);
             this.MContractRegisterGBox.Controls.Add(this.OpenMCRButton);
             this.MContractRegisterGBox.Controls.Add(this.AddMCRButton);
             this.MContractRegisterGBox.Location = new System.Drawing.Point(517, 53);
             this.MContractRegisterGBox.Name = "MContractRegisterGBox";
-            this.MContractRegisterGBox.Size = new System.Drawing.Size(228, 173);
+            this.MContractRegisterGBox.Size = new System.Drawing.Size(228, 218);
             this.MContractRegisterGBox.TabIndex = 4;
             this.MContractRegisterGBox.TabStop = false;
             // 
@@ -84,6 +86,20 @@
             this.AddMCRButton.TabIndex = 0;
             this.AddMCRButton.Text = "Добавить";
             this.AddMCRButton.UseVisualStyleBackColor = false;
+            this.AddMCRButton.Click += new System.EventHandler(this.AddMCRButton_Click);
+            // 
+            // RemoveMCRButton
+            // 
+            this.RemoveMCRButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RemoveMCRButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveMCRButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RemoveMCRButton.Location = new System.Drawing.Point(60, 156);
+            this.RemoveMCRButton.Name = "RemoveMCRButton";
+            this.RemoveMCRButton.Size = new System.Drawing.Size(103, 34);
+            this.RemoveMCRButton.TabIndex = 2;
+            this.RemoveMCRButton.Text = "Удалить";
+            this.RemoveMCRButton.UseVisualStyleBackColor = false;
+            this.RemoveMCRButton.Click += new System.EventHandler(this.RemoveMCRButton_Click);
             // 
             // MunicipalContractRegisterForm
             // 
@@ -107,5 +123,6 @@
         private System.Windows.Forms.GroupBox MContractRegisterGBox;
         private System.Windows.Forms.Button OpenMCRButton;
         private System.Windows.Forms.Button AddMCRButton;
+        private System.Windows.Forms.Button RemoveMCRButton;
     }
 }
