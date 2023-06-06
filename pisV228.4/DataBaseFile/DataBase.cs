@@ -60,6 +60,17 @@ namespace pisV228._4
             //animals[id].SpecialSings = animal.SpecialSings;
             //animals[id].YearBirth = animal.YearBirth;
         }
+
+        internal static void ChangeMunicipalContract(MunicipalContract record)
+        {
+            int id = municipalContracts.FindIndex(
+                x => x.MunicipalContractID == record.MunicipalContractID);
+            var contractType = typeof(MunicipalContract);
+            var propertys = contractType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(municipalContracts[id], propertys[i].GetValue(record));
+        }
+
         public static List<Animal> GetAnimals()
         {
             return animals;

@@ -25,6 +25,10 @@ namespace pisV228._4
         {
             return DataBase.GetMunicipalContractCard(id);
         }
+        public bool CanChangeCard()
+        {
+            return PermissonAction.CanChangeCard();
+        }
 
         public void AddCard(MunicipalContract record)
         {
@@ -42,6 +46,17 @@ namespace pisV228._4
             MessageBox.Show("Добавлен", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DataBase.AddMunicipalContract(record);
+        }
+        public void ChangeMunicipalContract(MunicipalContract record)
+        {
+            if (!record.IsCorrect())
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Карточка изменена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DataBase.ChangeMunicipalContract(record);
         }
     }
 }
