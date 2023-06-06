@@ -61,6 +61,7 @@
             // AddMCFButton
             // 
             this.AddMCFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddMCFButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.AddMCFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddMCFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddMCFButton.Location = new System.Drawing.Point(20, 19);
@@ -226,6 +227,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonMCFgroupbox);
             this.Name = "MunicipalContractForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Муниципальный контракт";
             this.Load += new System.EventHandler(this.MunicipalContractForm_Load);
             this.buttonMCFgroupbox.ResumeLayout(false);

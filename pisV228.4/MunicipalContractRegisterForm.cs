@@ -32,6 +32,7 @@ namespace pisV228._4
         }
         private void UpdateRegister()
         {
+            MCRDataGridView.Rows.Clear();
             contracts = controller.GetCards();
             foreach (var e in contracts)
             {
@@ -58,7 +59,10 @@ namespace pisV228._4
         private void AddMCRButton_Click(object sender, EventArgs e)
         {
             var formOrg = new MunicipalContractForm(controller);
-            formOrg.Show();
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void RemoveMCRButton_Click(object sender, EventArgs e)

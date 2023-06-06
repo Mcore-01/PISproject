@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace pisV228._4
 {
+
     public partial class MunicipalContractForm : Form
     {
         MunicipalContractController controller;
         //MunicipalContract municipalContract;
+        
         public MunicipalContractForm(MunicipalContractController controller)
         {
             InitializeComponent();
@@ -82,6 +84,15 @@ namespace pisV228._4
                 }
             }
             this.Controls.OfType<TextBox>().First().ReadOnly = true;*/
+            List<Organization> organizationList = new OrganizationController(controller.user).GetCards();
+            comboBox1.DataSource = organizationList;
+            comboBox2.DataSource = organizationList;
+            
+            comboBox1.ValueMember = "Name";
+            comboBox2.ValueMember = "Name";
+
+            comboBox1.DisplayMember = "Name";
+            comboBox2.DisplayMember = "Name";
         }
 
         private void AddMCFButton_Click(object sender, EventArgs e)

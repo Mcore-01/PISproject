@@ -32,6 +32,7 @@ namespace pisV228._4
         }
         private void UpdateRegister()
         {
+            ORDataGridView.Rows.Clear();
             organizations = controller.GetCards();
             foreach (var e in organizations)
             {
@@ -55,7 +56,10 @@ namespace pisV228._4
         private void AddORButton_Click(object sender, EventArgs e)
         {
             var formOrg = new OrganizationForm(controller);
-            formOrg.Show();
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void OpenORButton_Click(object sender, EventArgs e)

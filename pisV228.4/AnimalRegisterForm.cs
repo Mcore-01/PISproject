@@ -33,6 +33,7 @@ namespace pisV228._4
 
         private void UpdateRegister()
         {
+            ARDataGridView.Rows.Clear();
             animals = controller.GetCards();
             foreach (var e in animals)
             {
@@ -43,7 +44,10 @@ namespace pisV228._4
         private void AddARButton_Click(object sender, EventArgs e)
         {
             var form = new AnimalForm(controller);
-            form.Show();
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void AnimalRegisterForm_Load(object sender, EventArgs e)

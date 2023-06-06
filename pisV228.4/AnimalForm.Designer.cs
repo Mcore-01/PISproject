@@ -54,6 +54,7 @@
             // AddAFButton
             // 
             this.AddAFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddAFButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.AddAFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddAFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddAFButton.Location = new System.Drawing.Point(20, 19);
