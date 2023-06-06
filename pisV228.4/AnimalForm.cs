@@ -30,7 +30,8 @@ namespace pisV228._4
             InitializeComponent();
             this.controller = controller;
             this.currentAnimal = currentAnimal;
-            
+            controllerMS = new MaintenanceShelterController(controller.user);
+            buttonAFgroupbox.Visible = false;
         }
 
         private void AnimalForm_Load(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace pisV228._4
                 y += 16;
             }
             AFPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            
             if (currentAnimal != null && currentAnimal.Photo != "")
             {
                 LoadImageButton.Visible = false;
@@ -65,10 +67,12 @@ namespace pisV228._4
                 {
                     textbox.ReadOnly = true;
                 }
+                //AFPictureBox.
             }
-            this.Controls.OfType<TextBox>().First().Text = "1";
-            this.Controls.OfType<TextBox>().First().Visible = false;
-            this.Controls.OfType<Label>().First().Visible = false;
+            //this.Controls.OfType<TextBox>().First().Text = "1";
+            //this.Controls.OfType<TextBox>().First().Visible = true;
+            this.Controls.OfType<TextBox>().First().ReadOnly = true;
+            //this.Controls.OfType<Label>().First().Visible = false;
         }
 
         private void AddAFButton_Click(object sender, EventArgs e)
@@ -102,9 +106,9 @@ namespace pisV228._4
 
                 newPath = newNameFile;
             }
+            data[0] = 1;
             data.Add(newPath);
-            //MessageBox.Show(str.ToString());
-            controller.AddAnimalCard(new Animal(data.ToArray()), this);
+            controller.AddAnimalCard(new Animal(data.ToArray()));
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)
@@ -164,7 +168,9 @@ namespace pisV228._4
 
         private void OpenMainShelterButton_Click(object sender, EventArgs e)
         {
-            
+            var MaintenanceShelters = controllerMS.GetMaintenanceShelterCards(currentAnimal);
+            var formMS = new MaintenanceShelterForm(controllerMS, MaintenanceShelters);
+            formMS.Show();
         }
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)

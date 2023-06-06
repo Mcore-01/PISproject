@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,24 @@ namespace pisV228._4
     public partial class MaintenanceShelterForm : Form
     {
         MaintenanceShelterController controller;
+        List<MaintenanceShelter> maintenanceShelters;
+        int currentPage;
         public MaintenanceShelterForm(MaintenanceShelterController controller)
         {
             InitializeComponent();
             this.controller = controller;
+            PrevButtonMS.Visible = false;
+            NextButtonMS.Visible = false;
         }
-
+        public MaintenanceShelterForm(MaintenanceShelterController controller, List<MaintenanceShelter> list)
+        {
+            InitializeComponent();
+            this.controller = controller;
+            maintenanceShelters = list;
+            currentPage = 0;
+            AddMSFButton.Visible = false;
+            CloseMSFButton.Visible = false;
+        }
         private void MaintenanceShelter_Load(object sender, EventArgs e)
         {
             var animalType = typeof(MaintenanceShelter);
@@ -32,13 +45,24 @@ namespace pisV228._4
                 label.Text = labelAtt.LabelText;
                 //label.Text = propertys[i].Name;
                 var textbox = new TextBox { Top = y, Left = label.Width, Width = (this.ClientSize.Width), Height = 16 };
+                if (maintenanceShelters != null && maintenanceShelters.Count != 0)
+                {
+                    textbox.Text = propertys[i].GetValue(maintenanceShelters[currentPage]).ToString();
+                }
                 //textbox.Text = propertys[i].GetValue(currentAnimal).ToString();
                 textbox.Name = $"{propertys[i].Name}TB";
                 this.Controls.Add(label);
                 this.Controls.Add(textbox);
                 y += 16;
             }
-            
+            if (maintenanceShelters != null && maintenanceShelters.Count != 0)
+            {
+                foreach (var textbox in this.Controls.OfType<TextBox>())
+                {
+                    textbox.ReadOnly = true;
+                }
+            }
+
         }
 
         
@@ -67,5 +91,32 @@ namespace pisV228._4
                 this.Close();
             }
         }
+
+        private void NetxButtonMS_Click(object sender, EventArgs e)
+        {
+            ChangePage(1);
+        }
+
+        private void ChangePage(int iterate)
+        {
+            var animalType = typeof(MaintenanceShelter);
+            var propertys = animalType.GetProperties();
+            if (currentPage + iterate >=0 && currentPage + iterate < maintenanceShelters.Count)
+            {
+                currentPage+=iterate;
+                var currentCard = maintenanceShelters[currentPage];
+                var textBoxs = (this.Controls.OfType<TextBox>());
+                for (int i = 0; i < textBoxs.Count(); i++)
+                {
+                    textBoxs.ElementAt(i).Text = propertys[i].GetValue(currentCard).ToString();
+                }
+            }
+        }
+
+        private void PrevButtonMS_Click(object sender, EventArgs e)
+        {
+            ChangePage(-1);
+        }
+
     }
 }

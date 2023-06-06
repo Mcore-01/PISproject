@@ -35,8 +35,10 @@
             this.AddMainShelterButton = new System.Windows.Forms.Button();
             this.MainShelterGroupBox = new System.Windows.Forms.GroupBox();
             this.OpenMainShelterButton = new System.Windows.Forms.Button();
+            this.buttonAFgroupbox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.AFPictureBox)).BeginInit();
             this.MainShelterGroupBox.SuspendLayout();
+            this.buttonAFgroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // AFPictureBox
@@ -54,11 +56,11 @@
             this.AddAFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddAFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddAFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddAFButton.Location = new System.Drawing.Point(235, 317);
+            this.AddAFButton.Location = new System.Drawing.Point(20, 19);
             this.AddAFButton.Name = "AddAFButton";
             this.AddAFButton.Size = new System.Drawing.Size(103, 34);
             this.AddAFButton.TabIndex = 1;
-            this.AddAFButton.Text = "Сохранить";
+            this.AddAFButton.Text = "Добавить";
             this.AddAFButton.UseVisualStyleBackColor = false;
             this.AddAFButton.Click += new System.EventHandler(this.AddAFButton_Click);
             // 
@@ -80,7 +82,7 @@
             this.CloseAFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CloseAFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CloseAFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CloseAFButton.Location = new System.Drawing.Point(235, 371);
+            this.CloseAFButton.Location = new System.Drawing.Point(20, 73);
             this.CloseAFButton.Name = "CloseAFButton";
             this.CloseAFButton.Size = new System.Drawing.Size(103, 34);
             this.CloseAFButton.TabIndex = 3;
@@ -105,7 +107,7 @@
             // 
             this.MainShelterGroupBox.Controls.Add(this.OpenMainShelterButton);
             this.MainShelterGroupBox.Controls.Add(this.AddMainShelterButton);
-            this.MainShelterGroupBox.Location = new System.Drawing.Point(372, 317);
+            this.MainShelterGroupBox.Location = new System.Drawing.Point(417, 317);
             this.MainShelterGroupBox.Name = "MainShelterGroupBox";
             this.MainShelterGroupBox.Size = new System.Drawing.Size(155, 123);
             this.MainShelterGroupBox.TabIndex = 5;
@@ -125,22 +127,32 @@
             this.OpenMainShelterButton.UseVisualStyleBackColor = false;
             this.OpenMainShelterButton.Click += new System.EventHandler(this.OpenMainShelterButton_Click);
             // 
+            // buttonAFgroupbox
+            // 
+            this.buttonAFgroupbox.Controls.Add(this.AddAFButton);
+            this.buttonAFgroupbox.Controls.Add(this.CloseAFButton);
+            this.buttonAFgroupbox.Location = new System.Drawing.Point(251, 275);
+            this.buttonAFgroupbox.Name = "buttonAFgroupbox";
+            this.buttonAFgroupbox.Size = new System.Drawing.Size(142, 129);
+            this.buttonAFgroupbox.TabIndex = 6;
+            this.buttonAFgroupbox.TabStop = false;
+            // 
             // AnimalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 512);
+            this.ClientSize = new System.Drawing.Size(597, 512);
+            this.Controls.Add(this.buttonAFgroupbox);
             this.Controls.Add(this.MainShelterGroupBox);
-            this.Controls.Add(this.CloseAFButton);
             this.Controls.Add(this.LoadImageButton);
-            this.Controls.Add(this.AddAFButton);
             this.Controls.Add(this.AFPictureBox);
             this.Name = "AnimalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AnimalForm";
+            this.Text = "Карточка животного";
             this.Load += new System.EventHandler(this.AnimalForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AFPictureBox)).EndInit();
             this.MainShelterGroupBox.ResumeLayout(false);
+            this.buttonAFgroupbox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,5 +166,6 @@
         private System.Windows.Forms.Button AddMainShelterButton;
         private System.Windows.Forms.GroupBox MainShelterGroupBox;
         private System.Windows.Forms.Button OpenMainShelterButton;
+        private System.Windows.Forms.GroupBox buttonAFgroupbox;
     }
 }

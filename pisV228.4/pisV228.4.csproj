@@ -54,7 +54,10 @@
     </Compile>
     <Compile Include="Controllers\MaintenanceShelterController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\MunicipalContractController.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="DataBaseFile\DataBase.cs" />
+    <Compile Include="Interface\IController.cs" />
     <Compile Include="Interface\ICorrectable.cs" />
     <Compile Include="LabelText.cs" />
     <Compile Include="MainClasss\Animal.cs" />
@@ -75,6 +78,30 @@
     <Compile Include="MaintenanceShelterForm.Designer.cs">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MunicipalContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MunicipalContractForm.Designer.cs">
+      <DependentUpon>MunicipalContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MunicipalContractRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MunicipalContractRegisterForm.Designer.cs">
+      <DependentUpon>MunicipalContractRegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganizationForm.Designer.cs">
+      <DependentUpon>OrganizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganizationRegisterForm.Designer.cs">
+      <DependentUpon>OrganizationRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnimalForm.resx">
@@ -86,6 +113,18 @@
     <EmbeddedResource Include="MaintenanceShelterForm.resx">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MunicipalContractForm.resx">
+      <DependentUpon>MunicipalContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MunicipalContractRegisterForm.resx">
+      <DependentUpon>MunicipalContractRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganizationForm.resx">
+      <DependentUpon>OrganizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganizationRegisterForm.resx">
+      <DependentUpon>OrganizationRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,6 +134,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -112,10 +152,11 @@
     <Folder Include="PictureAnimal\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBaseFile\DataContracts.txt" />
     <Content Include="DataBaseFile\DataMainShelters.txt" />
     <Content Include="DataBaseFile\DataAnimals - Копировать.txt" />
     <Content Include="DataBaseFile\DataAnimals.txt" />
-    <Content Include="DataBaseFile\DataContracts.txt" />
+    <Content Include="DataBaseFile\DataOrganizations.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

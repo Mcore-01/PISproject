@@ -36,20 +36,28 @@ namespace pisV228._4
         public string Photo { get; set; }
         public Animal(object[] data)
         {
+            try
+            {
+                Locality = Convert.ToString(data[1]);
+                Category = Convert.ToString(data[2]);
+                Gender = Convert.ToString(data[3]);
+                YearBirth = Convert.ToDateTime(data[4]);
+                ChipNumber = Convert.ToInt32(data[5]);
+                NameAnimal = Convert.ToString(data[6]);
+                SpecialSings = Convert.ToString(data[7]);
+                PresenceSingsOwner = Convert.ToString(data[8]);      
+            }
+            catch 
+            {
+                IsCorrectCard = true;     
+            }
             AnimalID = Convert.ToInt32(data[0]);
-            Locality = Convert.ToString(data[1]);
-            Category = Convert.ToString(data[2]);
-            Gender = Convert.ToString(data[3]);
-            YearBirth = Convert.ToDateTime(data[4]);
-            ChipNumber = Convert.ToInt32(data[5]);
-            NameAnimal = Convert.ToString(data[6]);
-            SpecialSings = Convert.ToString(data[7]);
-            PresenceSingsOwner = Convert.ToString(data[8]);
             Photo = Convert.ToString(data[9]);
         }
         public bool IsCorrect()
         {
-            return true;
+            return IsCorrectCard;
         }
+        private bool IsCorrectCard;
     }
 }

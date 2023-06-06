@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="pisV228._4.AnimalForm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIBAAAAASAMEQEAABCBgAACIggAAEEAQCgAQAgAAAA=</HashCode>
+      <FileName>AnimalForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.AnimalRegisterForm" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACEAAAEgAACIAAACEAEAAAAAIAAAAAAEEAA=</HashCode>
+      <FileName>AnimalRegisterForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.AnimalController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIAQAAAIAAAAAAAAAAAAAAAAEAAAAAAAAAQA=</HashCode>
+      <FileName>Controllers\AnimalController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.MaintenanceShelterController" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAQA=</HashCode>
+      <FileName>Controllers\MaintenanceShelterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.DataBase" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAIBAAAAEBAAAIBAAAAAAAAEAAgAAAAAAgUAAAgAAE=</HashCode>
+      <FileName>DataBaseFile\DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.LabelAtt" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>LabelText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.Animal" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAIAAACGAAAAAAAAEgABAAAAAAAIAAABACAA=</HashCode>
+      <FileName>MainClasss\Animal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="pisV228._4.MaintenanceShelter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAgAoAAAAggAAAAAAAAABAAAAIABABACAA=</HashCode>
+      <FileName>MainClasss\MaintenanceShelter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="pisV228._4.MunicipalContract" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAAAAAAABAEAAAEAACIAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>MainClasss\MunicipalContract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="pisV228._4.Organization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAQAgAAoAAACAAIBAAAAAAA=</HashCode>
+      <FileName>MainClasss\Organization.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="pisV228._4.PermissonAction" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAQQA=</HashCode>
+      <FileName>MainClasss\PermissonAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.User" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>MainClasss\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.MaintenanceShelterForm" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAYACAAgSEAAACgAAACAAAAkAACAAAAAgABAAQ=</HashCode>
+      <FileName>MaintenanceShelterForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.Program" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pisV228._4.Properties.Settings" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="pisV228._4.ICorrectable" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Interface\ICorrectable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
