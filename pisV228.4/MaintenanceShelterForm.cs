@@ -22,6 +22,7 @@ namespace pisV228._4
             this.controller = controller;
             PrevButtonMS.Visible = false;
             NextButtonMS.Visible = false;
+            comboBox1.Width = (this.ClientSize.Width);
         }
         public MaintenanceShelterForm(MaintenanceShelterController controller, List<MaintenanceShelter> list)
         {
@@ -31,6 +32,7 @@ namespace pisV228._4
             currentPage = 0;
             AddMSFButton.Visible = false;
             CloseMSFButton.Visible = false;
+            comboBox1.Visible = false;
         }
         private void MaintenanceShelter_Load(object sender, EventArgs e)
         {
@@ -38,7 +40,7 @@ namespace pisV228._4
             var propertys = animalType.GetProperties();
             int y = 0;
 
-            for (int i = 0; i < propertys.Length - 1; i++)
+            for (int i = 0; i < propertys.Length; i++)
             {
                 var labelAtt = propertys[i].GetCustomAttributes(true).OfType<LabelAtt>().First();
                 var label = new Label { Top = y, Left = 0, Width = this.ClientSize.Width / 2, Height = 16 };
@@ -61,8 +63,33 @@ namespace pisV228._4
                 {
                     textbox.ReadOnly = true;
                 }
+                //comboBox1.Visible = false;
+               
             }
+            /*else
+            {
+                var labelAtt = propertys[i].GetCustomAttributes(true).OfType<LabelAtt>().First();
+                var label = new Label { Top = y, Left = 0, Width = this.ClientSize.Width / 2, Height = 16 };
+                label.Text = labelAtt.LabelText;
+                //label.Text = propertys[i].Name;
+                var textbox = new TextBox { Top = y, Left = label.Width, Width = (this.ClientSize.Width), Height = 16 };
+                if (maintenanceShelters != null && maintenanceShelters.Count != 0)
+                {
+                    textbox.Text = propertys[i].GetValue(maintenanceShelters[currentPage]).ToString();
+                }
+                //textbox.Text = propertys[i].GetValue(currentAnimal).ToString();
+                textbox.Name = $"{propertys[i].Name}TB";
+                this.Controls.Add(label);
+                this.Controls.Add(textbox);
+                y += 16;
+            }*/
+            List<MunicipalContract> organizationList = new MunicipalContractController(controller.user).GetCards();
 
+            comboBox1.DataSource = organizationList;
+
+            comboBox1.ValueMember = "MunicipalContractID";
+
+            comboBox1.DisplayMember = "Number";
         }
 
         
