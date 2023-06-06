@@ -25,7 +25,7 @@ namespace pisV228._4
 
         [LabelAtt("Заказчик")]
         public string Customer { get; set; }
-
+        
         public MunicipalContract(object[] data)
         {
             MunicipalContractID = Convert.ToInt32(data[0]);
