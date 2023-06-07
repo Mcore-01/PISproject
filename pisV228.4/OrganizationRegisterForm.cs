@@ -28,15 +28,29 @@ namespace pisV228._4
             ORDataGridView.Columns[2].Width = 80;
             ORDataGridView.Columns[3].Width = 80;
             ORDataGridView.Columns[4].Width = 100;
+
+            var columns = ORDataGridView.Columns;
+            for (int i = 1; i < columns.Count; i++)
+            {
+                ComboBoxSort.Items.Add(columns[i].HeaderText);//ToString());
+            }
             UpdateRegister();
         }
-        private void UpdateRegister()
+        private void UpdateRegister(List<string> filters = null, int? sorting = null)
         {
             ORDataGridView.Rows.Clear();
             organizations = controller.GetCards();
             foreach (var e in organizations)
             {
                 ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
+            }
+
+            if (sorting != null)
+            {
+                var direction = ListSortDirection.Ascending;
+                if (CheckBoxDesc.Checked)
+                    direction = ListSortDirection.Descending;
+                ORDataGridView.Sort(ORDataGridView.Columns[(int)sorting], direction);
             }
         }
         private void OrganizationRegisterForm_Load(object sender, EventArgs e)
@@ -93,6 +107,13 @@ namespace pisV228._4
             int id = Convert.ToInt32(ORDataGridView.CurrentRow.Cells[0].Value);
             ORDataGridView.CurrentRow.Visible = false;
             controller.RemoveCard(id);
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
+            UpdateRegister(null, sorting);
         }
     }
 }

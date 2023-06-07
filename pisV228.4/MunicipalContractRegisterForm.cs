@@ -72,9 +72,8 @@ namespace pisV228._4
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            int? sorting = ComboBoxSort.SelectedIndex;
-            if (sorting == -1) sorting = null;
-            MCRDataGridView.Rows.Clear();
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
             UpdateRegister(null, sorting);
         }
 
