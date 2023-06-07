@@ -72,25 +72,7 @@ namespace pisV228._4
                 return;
             }
 
-            Excel.Application excel = new Excel.Application();
-            excel.Workbooks.Add();
-            Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
-
-            var organizationType = typeof(Organization);
-            var propertys = organizationType.GetProperties();
-            for (int i = 0; i < organizations.Count; i++)
-            {
-                for (int j = 0; j < propertys.Length; j++)
-                    wsh.Cells[i + 2, j + 1] = propertys[j].GetValue(organizations[i]);
-            }
-
-            for (int j = 0; j < propertys.Length; j++)
-            {
-                wsh.Cells[1, j + 1] = propertys[j].Name;
-                wsh.Columns[j + 1].AutoFit();
-            }
-            excel.Visible = true;
-            wsh.SaveAs(pathFile);
+            ReportMaker.MakeReportOrganzation(organizations, pathFile);
         }
         
         public void RemoveCard(int id)

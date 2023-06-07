@@ -60,7 +60,7 @@
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\MunicipalContractController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
-    <Compile Include="Controllers\ReportMaker.cs" />
+    <Compile Include="ReportMaker.cs" />
     <Compile Include="DataBaseFile\DataBase.cs" />
     <Compile Include="Interface\IController.cs" />
     <Compile Include="Interface\ICorrectable.cs" />

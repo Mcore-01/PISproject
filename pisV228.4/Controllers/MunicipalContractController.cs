@@ -69,30 +69,51 @@ namespace pisV228._4
                 return;
             }
 
-            Excel.Application excel = new Excel.Application();
-            excel.Workbooks.Add();
-            Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
-
-            var contarctType = typeof(MunicipalContract);
-            var propertys = contarctType.GetProperties();
-            for (int i = 0; i < contracts.Count; i++)
-            {
-                for (int j = 0; j < propertys.Length; j++)
-                    wsh.Cells[i + 2, j + 1] = propertys[j].GetValue(contracts[i]);
-            }
-
-            for (int j = 0; j < propertys.Length; j++)
-            {
-                wsh.Cells[1, j + 1] = propertys[j].Name;
-                wsh.Columns[j + 1].AutoFit();
-            }
-            excel.Visible = true;
-            wsh.SaveAs(pathFile);
+            ReportMaker.MakeReportContracts(contracts, pathFile);
         }
 
         public void RemoveCard(int id)
         {
             DataBase.RemoveMunicipalContractCard(id);
+        }
+
+        public List<MunicipalContract> GetSortedCards(string filters = null, int? sorting = null, bool toDesc = false)
+        {
+            var listContr = new List<MunicipalContract>();
+            var contracts = this.GetCards();
+            foreach (var e in contracts)
+            {
+                var contr = new MunicipalContract(new object[] { 0 });
+                contr.MunicipalContractID = e.MunicipalContractID;
+                contr.Number = e.Number;
+                contr.DateConclusion = e.DateConclusion;
+                contr.Customer = e.Customer;
+                contr.Contractor = e.Contractor;
+
+                if (filters != null)
+                {
+                    if (e.MunicipalContractID.ToString() == filters || e.Number.ToString() == filters ||
+                        e.DateConclusion.ToString() == filters || e.Customer == filters || e.Contractor == filters)
+                    {
+                        
+                        listContr.Add(contr);
+                    }
+                }
+                else listContr.Add(contr);
+            }
+
+            if (sorting != null)
+            {
+                var type = typeof(MunicipalContract);
+                var props = type.GetProperties();
+                listContr.Sort();
+                //if (toDesc)
+
+/*                if (CheckBoxDesc.Checked)
+                    MCRDataGridView.Sort(MCRDataGridView.Columns[(int)sorting], direction);*/
+            }
+
+            return listContr;
         }
     }
 }

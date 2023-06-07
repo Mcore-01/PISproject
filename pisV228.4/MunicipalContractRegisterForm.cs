@@ -39,26 +39,10 @@ namespace pisV228._4
         private void UpdateRegister(string filters = null, int? sorting = null)
         {
             MCRDataGridView.Rows.Clear();
-            contracts = controller.GetCards();
-            foreach (var e in contracts)
+            var contracts = controller.GetSortedCards(filters, sorting);
+            foreach (var contract in contracts)
             {
-                if (filters != null)
-                {
-                    if (e.MunicipalContractID.ToString() == filters || e.Number.ToString() == filters ||
-                        e.DateConclusion.ToString() == filters || e.Customer == filters || e.Contractor == filters)
-                    {
-                        MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
-                    }
-                }
-                else MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
-            }
-
-            if (sorting != null)
-            {
-                var direction = ListSortDirection.Ascending;
-                if (CheckBoxDesc.Checked)
-                    direction = ListSortDirection.Descending;
-                MCRDataGridView.Sort(MCRDataGridView.Columns[(int)sorting], direction);
+                MCRDataGridView.Rows.Add(contract.MunicipalContractID, contract.Number, contract.DateConclusion, contract.Customer, contract.Contractor);
             }
         }
         private void MunicipalContractRegisterForm_Load(object sender, EventArgs e)
