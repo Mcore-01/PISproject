@@ -49,9 +49,13 @@ namespace pisV228._4
             DataBase.WriteDataAnimals();
         }
 
-        public void RemoveCard(int id)
+        public void RemoveCard(Animal record)
         {
-            DataBase.RemoveAnimalCard(id);
+            if (!PermissonAction.CanRemoveAnimal())
+            {
+                throw new InvalidOperationException();
+            }
+            DataBase.RemoveAnimalCard(record.AnimalID);
         }
     }
 }

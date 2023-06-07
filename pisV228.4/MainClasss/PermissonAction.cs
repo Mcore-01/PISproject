@@ -51,5 +51,21 @@ namespace pisV228._4
         {
             return animalUsers.Contains(user.role);
         }
+
+        public bool CanRemoveAnimal()
+        {
+            return animalUsers.Contains(user.role);
+        }
+
+        public bool CanRemoveOrganization()
+        {
+
+            return organizationUsers.Contains(user.role);
+        }
+
+        public bool CanRemoveMunicipalContract()
+        {
+            return contractUsers.Contains(user.role);
+        }
     }
 }

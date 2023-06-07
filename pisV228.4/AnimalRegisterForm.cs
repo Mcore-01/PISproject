@@ -79,8 +79,17 @@ namespace pisV228._4
                 return;
             }
             int id = Convert.ToInt32(ARDataGridView.CurrentRow.Cells[0].Value);
-            ARDataGridView.CurrentRow.Visible = false;
-            controller.RemoveCard(id);
+            var currentAnimal = animals.First(x => x.AnimalID == id);
+            try
+            {
+                controller.RemoveCard(currentAnimal);
+                MessageBox.Show("Удалено", "Животное", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ARDataGridView.CurrentRow.Visible = false;
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете удалять животных из реестра!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

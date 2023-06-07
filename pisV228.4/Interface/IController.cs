@@ -14,6 +14,6 @@ namespace pisV228._4
 
         void AddCard(T record);
 
-        void RemoveCard(int id);
+        void RemoveCard(T record);
     }
 }

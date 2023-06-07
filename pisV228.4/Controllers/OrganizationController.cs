@@ -44,9 +44,13 @@ namespace pisV228._4
             DataBase.AddOrganization(record);
         }
 
-        public void RemoveCard(int id)
+        public void RemoveCard(Organization record)
         {
-            DataBase.RemoveOrganizationCard(id);
+            if (!PermissonAction.CanRemoveOrganization())
+            {
+                throw new InvalidOperationException();
+            }
+            DataBase.RemoveOrganizationCard(record.OrganizationID);
         }
 
         public void SaveOrganizationRegister()

@@ -72,8 +72,18 @@ namespace pisV228._4
                 return;
             }
             int id = Convert.ToInt32(MCRDataGridView.CurrentRow.Cells[0].Value);
-            MCRDataGridView.CurrentRow.Visible = false;
-            controller.RemoveCard(id);
+            var currentContract = contracts.First(x => x.MunicipalContractID == id);
+            try
+            {
+                controller.RemoveCard(currentContract);
+                MessageBox.Show("Удален", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MCRDataGridView.CurrentRow.Visible = false;
+
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете удалять минуципальные контракты!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void MunicipalContractRegisterForm_FormClosed(object sender, FormClosedEventArgs e)

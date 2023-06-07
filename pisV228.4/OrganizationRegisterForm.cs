@@ -81,8 +81,17 @@ namespace pisV228._4
                 return;
             }
             int id = Convert.ToInt32(ORDataGridView.CurrentRow.Cells[0].Value);
-            ORDataGridView.CurrentRow.Visible = false;
-            controller.RemoveCard(id);
+            var currentOrganization = organizations.First(x => x.OrganizationID == id);
+            try
+            {
+                controller.RemoveCard(currentOrganization);
+                MessageBox.Show("Удалена", "Организация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ORDataGridView.CurrentRow.Visible = false;
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете удалять организации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void OrganizationRegisterForm_FormClosed(object sender, FormClosedEventArgs e)
