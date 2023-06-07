@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -79,6 +83,12 @@
       <DependentUpon>AnimalRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClasss\MaintenanceShelter.cs" />
+    <Compile Include="MainFormApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormApplication.Designer.cs">
+      <DependentUpon>MainFormApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintenanceShelterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +127,9 @@
     <EmbeddedResource Include="AnimalRegisterForm.resx">
       <DependentUpon>AnimalRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainFormApplication.resx">
+      <DependentUpon>MainFormApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaintenanceShelterForm.resx">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +158,7 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +176,7 @@
     <Folder Include="PictureAnimal\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBaseFile\DataContracts - Копировать.txt" />
     <Content Include="DataBaseFile\DataContracts.txt" />
     <Content Include="DataBaseFile\DataMainShelters.txt" />
     <Content Include="DataBaseFile\DataAnimals - Копировать.txt" />

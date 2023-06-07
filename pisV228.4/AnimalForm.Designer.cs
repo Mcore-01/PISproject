@@ -36,9 +36,14 @@
             this.MainShelterGroupBox = new System.Windows.Forms.GroupBox();
             this.OpenMainShelterButton = new System.Windows.Forms.Button();
             this.buttonAFgroupbox = new System.Windows.Forms.GroupBox();
+            this.ChangeButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.ChangeGroupBox = new System.Windows.Forms.GroupBox();
+            this.CancelChangeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AFPictureBox)).BeginInit();
             this.MainShelterGroupBox.SuspendLayout();
             this.buttonAFgroupbox.SuspendLayout();
+            this.ChangeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // AFPictureBox
@@ -54,6 +59,7 @@
             // AddAFButton
             // 
             this.AddAFButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddAFButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.AddAFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddAFButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddAFButton.Location = new System.Drawing.Point(20, 19);
@@ -137,11 +143,64 @@
             this.buttonAFgroupbox.TabIndex = 6;
             this.buttonAFgroupbox.TabStop = false;
             // 
+            // ChangeButton
+            // 
+            this.ChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ChangeButton.Location = new System.Drawing.Point(20, 44);
+            this.ChangeButton.Name = "ChangeButton";
+            this.ChangeButton.Size = new System.Drawing.Size(103, 34);
+            this.ChangeButton.TabIndex = 4;
+            this.ChangeButton.Text = "Изменить";
+            this.ChangeButton.UseVisualStyleBackColor = false;
+            this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SaveButton.Location = new System.Drawing.Point(20, 19);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(103, 34);
+            this.SaveButton.TabIndex = 7;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // ChangeGroupBox
+            // 
+            this.ChangeGroupBox.Controls.Add(this.CancelChangeButton);
+            this.ChangeGroupBox.Controls.Add(this.ChangeButton);
+            this.ChangeGroupBox.Controls.Add(this.SaveButton);
+            this.ChangeGroupBox.Location = new System.Drawing.Point(251, 317);
+            this.ChangeGroupBox.Name = "ChangeGroupBox";
+            this.ChangeGroupBox.Size = new System.Drawing.Size(142, 129);
+            this.ChangeGroupBox.TabIndex = 8;
+            this.ChangeGroupBox.TabStop = false;
+            // 
+            // CancelChangeButton
+            // 
+            this.CancelChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CancelChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CancelChangeButton.Location = new System.Drawing.Point(20, 72);
+            this.CancelChangeButton.Name = "CancelChangeButton";
+            this.CancelChangeButton.Size = new System.Drawing.Size(103, 34);
+            this.CancelChangeButton.TabIndex = 9;
+            this.CancelChangeButton.Text = "Отмена";
+            this.CancelChangeButton.UseVisualStyleBackColor = false;
+            this.CancelChangeButton.Visible = false;
+            this.CancelChangeButton.Click += new System.EventHandler(this.CancelChangeButton_Click);
+            // 
             // AnimalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 512);
+            this.Controls.Add(this.ChangeGroupBox);
             this.Controls.Add(this.buttonAFgroupbox);
             this.Controls.Add(this.MainShelterGroupBox);
             this.Controls.Add(this.LoadImageButton);
@@ -153,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AFPictureBox)).EndInit();
             this.MainShelterGroupBox.ResumeLayout(false);
             this.buttonAFgroupbox.ResumeLayout(false);
+            this.ChangeGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -167,5 +227,9 @@
         private System.Windows.Forms.GroupBox MainShelterGroupBox;
         private System.Windows.Forms.Button OpenMainShelterButton;
         private System.Windows.Forms.GroupBox buttonAFgroupbox;
+        private System.Windows.Forms.Button ChangeButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.GroupBox ChangeGroupBox;
+        private System.Windows.Forms.Button CancelChangeButton;
     }
 }

@@ -38,6 +38,7 @@ namespace pisV228._4
         }
         private void UpdateRegister(List<string> filters = null, int? sorting = null)
         {
+            MCRDataGridView.Rows.Clear();
             contracts = controller.GetCards();
             foreach (var e in contracts)
             {
@@ -84,6 +85,34 @@ namespace pisV228._4
 
         private void CheckBoxDesc_CheckedChanged(object sender, EventArgs e)
         {
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Execl files (*.xls)|*.xls";
+            if (saveFile.ShowDialog() == DialogResult.Cancel)
+                return;
+            string pathFile = saveFile.FileName;
+            controller.Export(contracts, pathFile);
+        private void AddMCRButton_Click(object sender, EventArgs e)
+        {
+            var formOrg = new MunicipalContractForm(controller);
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
+        }
+
+        private void RemoveMCRButton_Click(object sender, EventArgs e)
+        {
+            if (MCRDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(MCRDataGridView.CurrentRow.Cells[0].Value);
+            MCRDataGridView.CurrentRow.Visible = false;
+            controller.RemoveCard(id);
         }
     }
 }

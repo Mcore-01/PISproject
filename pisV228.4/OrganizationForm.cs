@@ -69,5 +69,35 @@ namespace pisV228._4
             data[0] = 1;
             controller.AddCard(new Organization(data.ToArray()));
         }
+        private void OpenChangeGroupBox(bool open)
+        {
+            foreach (var item in (this.Controls.OfType<TextBox>().Skip(1)))
+                item.ReadOnly = !open;
+            SaveButton.Visible = open;
+            CancelChangeButton.Visible = open;
+            ChangeButton.Visible = !open;
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            var data = new List<object>();
+            foreach (var item in (this.Controls.OfType<TextBox>()))
+                data.Add(item.Text);
+            controller.ChangeOrganization(new Organization(data.ToArray()));
+            OpenChangeGroupBox(false);
+        }
+
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (!controller.CanChangeCard())
+                MessageBox.Show("Вы не можете изменять карточку!", "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else OpenChangeGroupBox(true);
+        }
+
+        private void CancelChangeButton_Click(object sender, EventArgs e)
+        {
+            OpenChangeGroupBox(false);
+        }
     }
 }

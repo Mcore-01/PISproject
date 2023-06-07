@@ -42,6 +42,45 @@ namespace pisV228._4
             data.MunicipalContractID = mcID;
             municipalContracts.Add(data);
         }
+        public static void ChangeAnimal(Animal animal)
+        {
+            int id = animals.FindIndex(x => x.AnimalID == animal.AnimalID);
+            var animalType = typeof(Animal);
+            var propertys = animalType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(animals[id], propertys[i].GetValue(animal));
+
+            //animals[id].Category = animal.Category;
+            //animals[id].ChipNumber = animal.ChipNumber;
+            //animals[id].Gender = animal.Gender;
+            //animals[id].Locality = animal.Locality;
+            //animals[id].NameAnimal = animal.NameAnimal;
+            //animals[id].Photo = animal.Photo;
+            //animals[id].PresenceSingsOwner = animal.PresenceSingsOwner;
+            //animals[id].SpecialSings = animal.SpecialSings;
+            //animals[id].YearBirth = animal.YearBirth;
+        }
+
+        internal static void ChangeOrganization(Organization record)
+        {
+            int id = organizations.FindIndex(
+                x => x.OrganizationID == record.OrganizationID);
+            var organizationType = typeof(Organization);
+            var propertys = organizationType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(organizations[id], propertys[i].GetValue(record));
+        }
+
+        internal static void ChangeMunicipalContract(MunicipalContract record)
+        {
+            int id = municipalContracts.FindIndex(
+                x => x.MunicipalContractID == record.MunicipalContractID);
+            var contractType = typeof(MunicipalContract);
+            var propertys = contractType.GetProperties();
+            for (int i = 0; i < propertys.Length; i++)
+                propertys[i].SetValue(municipalContracts[id], propertys[i].GetValue(record));
+        }
+
         public static List<Animal> GetAnimals()
         {
             return animals;
@@ -152,6 +191,33 @@ namespace pisV228._4
                 .Select(x => new Organization(x)).ToList();
             orgID = readedData.Max(x => x.OrganizationID);
             return readedData;
+        }
+
+        public static void RemoveAnimalCard(int id)
+        {
+            try
+            {
+                animals.Remove(animals.Where(x => x.AnimalID == id).First());
+            }
+            catch { }
+        }
+
+        public static void RemoveOrganizationCard(int id)
+        {
+            try
+            {
+                organizations.Remove(organizations.Where(x => x.OrganizationID == id).First());
+            }
+            catch { }
+        }
+
+        public static void RemoveMunicipalContractCard(int id)
+        {
+            try
+            {
+                municipalContracts.Remove(municipalContracts.Where(x => x.MunicipalContractID == id).First());
+            }
+            catch { }
         }
     }
 }
