@@ -33,7 +33,6 @@
             this.PrevButtonMS = new System.Windows.Forms.Button();
             this.NextButtonMS = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddMSFButton
@@ -80,7 +79,7 @@
             this.NextButtonMS.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.NextButtonMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NextButtonMS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.NextButtonMS.Location = new System.Drawing.Point(669, 281);
+            this.NextButtonMS.Location = new System.Drawing.Point(603, 281);
             this.NextButtonMS.Name = "NextButtonMS";
             this.NextButtonMS.Size = new System.Drawing.Size(103, 34);
             this.NextButtonMS.TabIndex = 6;
@@ -91,26 +90,16 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(391, 169);
+            this.comboBox1.Location = new System.Drawing.Point(360, 164);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(411, 21);
+            this.comboBox1.Size = new System.Drawing.Size(361, 21);
             this.comboBox1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 177);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Муниципальный контракт";
             // 
             // MaintenanceShelterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(720, 450);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.NextButtonMS);
             this.Controls.Add(this.PrevButtonMS);
@@ -120,7 +109,6 @@
             this.Text = "MaintenanceShelter";
             this.Load += new System.EventHandler(this.MaintenanceShelter_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -131,6 +119,5 @@
         private System.Windows.Forms.Button PrevButtonMS;
         private System.Windows.Forms.Button NextButtonMS;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
     }
 }

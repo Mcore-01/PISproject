@@ -20,6 +20,10 @@ namespace pisV228._4
             //Application.Run(new OrganizationRegisterForm(user));
             Application.Run(new AnimalRegisterForm(user));
             //Application.Run(new MunicipalContractRegisterForm(user));
+            User user2 = new User("login", "password", "OperatorOMSU");
+            Application.Run(new MainFormApplication(user));
+            //Application.Run(new OrganizationRegisterForm(user2));
+            //Application.Run(new MunicipalContractRegisterForm(user2));
         }
     }
 }

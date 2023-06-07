@@ -192,5 +192,32 @@ namespace pisV228._4
             orgID = readedData.Max(x => x.OrganizationID);
             return readedData;
         }
+
+        public static void RemoveAnimalCard(int id)
+        {
+            try
+            {
+                animals.Remove(animals.Where(x => x.AnimalID == id).First());
+            }
+            catch { }
+        }
+
+        public static void RemoveOrganizationCard(int id)
+        {
+            try
+            {
+                organizations.Remove(organizations.Where(x => x.OrganizationID == id).First());
+            }
+            catch { }
+        }
+
+        public static void RemoveMunicipalContractCard(int id)
+        {
+            try
+            {
+                municipalContracts.Remove(municipalContracts.Where(x => x.MunicipalContractID == id).First());
+            }
+            catch { }
+        }
     }
 }

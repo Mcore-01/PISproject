@@ -47,6 +47,7 @@ namespace pisV228._4
         {
             return IsCorrectCard;
         }
+  
         private bool IsCorrectCard = true;
     }
 }

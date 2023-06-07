@@ -8,7 +8,7 @@ namespace pisV228._4
 {
     public class MaintenanceShelterController
     {
-        private User user;
+        public User user;
         private PermissonAction PermissonAction;
         public MaintenanceShelterController(User user)
         {

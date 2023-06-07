@@ -9,7 +9,11 @@ namespace pisV228._4
     public interface IController<T>
     {
         List<T> GetCards();
+
         T GetCard(int id);
+
         void AddCard(T record);
+
+        void RemoveCard(int id);
     }
 }

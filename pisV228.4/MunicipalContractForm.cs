@@ -10,27 +10,62 @@ using System.Windows.Forms;
 
 namespace pisV228._4
 {
+
     public partial class MunicipalContractForm : Form
     {
         MunicipalContractController controller;
-        MunicipalContract municipalContract;
+        //MunicipalContract municipalContract;
+        
         public MunicipalContractForm(MunicipalContractController controller)
         {
             InitializeComponent();
             this.controller = controller;
             ChangeGroupBox.Visible = false;
+            textBox1.Visible = false;
+            label1.Visible = false;
         }
         public MunicipalContractForm(MunicipalContractController controller, MunicipalContract municipalContract)
         {
             InitializeComponent();
             this.controller = controller;
-            this.municipalContract = municipalContract;
+            //this.municipalContract = municipalContract;
             buttonMCFgroupbox.Visible = false;
+            
+            
+            //dateTimePicker1.Enabled = false;
+            var textBox4 = new TextBox() {Width = dateTimePicker1.Width,  Left = dateTimePicker1.Left, Top = dateTimePicker1.Top};
+            var textBox5 = new TextBox() {Width = dateTimePicker2.Width,  Left = dateTimePicker2.Left, Top = dateTimePicker2.Top};
+            var textBox6 = new TextBox() {Width = comboBox1.Width,  Left = comboBox1.Left, Top = comboBox1.Top};
+            var textBox7 = new TextBox() {Width = comboBox2.Width,  Left = comboBox2.Left, Top = comboBox2.Top};     
+            this.Controls.AddRange(new Control[] { textBox4, textBox5, textBox6, textBox7 });
+ 
+            var type = typeof(MunicipalContract);
+            var propertys = type.GetProperties();
+            
+            var textbox = this.Controls.OfType<TextBox>().ToArray();
+            //MessageBox.Show(string.Join(" ", textbox.Select(x=>x.Name)), "das");
+            for (int i = 0; i < propertys.Length; i++)
+            {
+                if (propertys[i].PropertyType == typeof(DateTime))
+                {
+
+                    textbox[i].Text = string.Format("{0:dd/MM/yyyy}", propertys[i].GetValue(municipalContract));
+                }
+                else
+                {
+                    textbox[i].Text = propertys[i].GetValue(municipalContract).ToString();
+                }
+                textbox[i].ReadOnly = true;
+            }
+            dateTimePicker1.Visible = false;
+            dateTimePicker2.Visible = false;
+            comboBox1.Visible = false;
+            comboBox2.Visible = false;
         }
 
         private void MunicipalContractForm_Load(object sender, EventArgs e)
         {
-            var municipalContractType = typeof(MunicipalContract);
+            /*var municipalContractType = typeof(MunicipalContract);
             var propertys = municipalContractType.GetProperties();
             int y = 0;
             for (int i = 0; i < propertys.Length; i++)
@@ -56,7 +91,42 @@ namespace pisV228._4
                     textbox.ReadOnly = true;
                 }
             }
-            this.Controls.OfType<TextBox>().First().ReadOnly = true;
+            this.Controls.OfType<TextBox>().First().ReadOnly = true;*/
+            List<Organization> organizationList = new OrganizationController(controller.user).GetCards();
+            List<Organization> organizationList2 = organizationList.ToList();
+            comboBox1.DataSource = organizationList;
+            comboBox2.DataSource = organizationList2;
+            
+            comboBox1.ValueMember = "Name";
+            comboBox2.ValueMember = "Name";
+
+            comboBox1.DisplayMember = "Name";
+            comboBox2.DisplayMember = "Name";
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        private void AddMCFButton_Click(object sender, EventArgs e)
+        {
+            var data = new List<object>();
+            foreach (var item in (this.Controls.OfType<TextBox>()))
+            {
+                data.Add(item.Text);
+            }
+
+            data.Add(dateTimePicker1.Value);
+            data.Add(dateTimePicker2.Value);
+            data.Add(comboBox1.Text);
+            data.Add(comboBox1.Text);
+            data[0] = 1;
+            controller.AddCard(new MunicipalContract(data.ToArray()));
+            this.Close();
+        }
+
+        private void CloseMCFButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         private void OpenChangeGroupBox(bool open)
         {
