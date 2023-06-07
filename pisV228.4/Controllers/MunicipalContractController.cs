@@ -30,17 +30,12 @@ namespace pisV228._4
         {
             if (record.IsCorrect())
             {
-                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                throw new ArgumentException();
             }
             if (!PermissonAction.CanAddMunicipalContract())
             {
-                MessageBox.Show("Вы не можете добавлять контракты в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                throw new InvalidOperationException();
             }
-
-            MessageBox.Show("Добавлен", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             DataBase.AddMunicipalContract(record);
         }
 

@@ -22,16 +22,14 @@ namespace pisV228._4
 
             if (record.IsCorrect())
             {
-                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                throw new ArgumentException();
             }
             if (!PermissonAction.CanAddAnimal())
             {
-                MessageBox.Show("Вы не можете добавлять животных в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                throw new InvalidOperationException();
             }
 
-            MessageBox.Show("Добавлено", "Животное", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             
             DataBase.AddAnimal(record);
 

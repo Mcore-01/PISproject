@@ -119,7 +119,19 @@ namespace pisV228._4
             data.Add(comboBox1.Text);
             data.Add(comboBox1.Text);
             data[0] = 1;
-            controller.AddCard(new MunicipalContract(data.ToArray()));
+            try
+            {
+                controller.AddCard(new MunicipalContract(data.ToArray()));
+                MessageBox.Show("Добавлен", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете добавлять контракты в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.Close();
         }
 

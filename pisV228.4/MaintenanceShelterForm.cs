@@ -122,7 +122,19 @@ namespace pisV228._4
             
             data.Add(comboBox1.ValueMember);
             //MessageBox.Show(String.Join(" ", textbox.Select(x => x.Text)) + comboBox1.ValueMember);
-            controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray(), animal));
+            try
+            {
+                controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray(), animal));
+                MessageBox.Show("Добавлено", "Содержание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете добавлять содержание животного в приюте в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CloseMSFButton_Click(object sender, EventArgs e)

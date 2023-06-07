@@ -67,7 +67,20 @@ namespace pisV228._4
                 data.Add(item.Text);
             }
             data[0] = 1;
-            controller.AddCard(new Organization(data.ToArray()));
+            try
+            {
+                controller.AddCard(new Organization(data.ToArray()));
+                MessageBox.Show("Добавлена", "Организация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете добавлять организации в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

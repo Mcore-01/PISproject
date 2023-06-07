@@ -116,7 +116,19 @@ namespace pisV228._4
             }
             data[0] = 1;
             data.Add(newPath);
-            controller.AddCard(new Animal(data.ToArray()));
+            try
+            {
+                controller.AddCard(new Animal(data.ToArray()));
+                MessageBox.Show("Добавлено", "Животное", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Вы не можете добавлять животных в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)
