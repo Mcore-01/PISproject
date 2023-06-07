@@ -28,14 +28,28 @@ namespace pisV228._4
             MCRDataGridView.Columns[2].Width = 80;
             MCRDataGridView.Columns[3].Width = 80;
             MCRDataGridView.Columns[4].Width = 100;
+            var columns = MCRDataGridView.Columns;
+            for (int i = 1; i < columns.Count; i++)
+            {
+                ComboBoxSort.Items.Add(columns[i].HeaderText);//ToString());
+            }
+
             UpdateRegister();
         }
-        private void UpdateRegister()
+        private void UpdateRegister(List<string> filters = null, int? sorting = null)
         {
             contracts = controller.GetCards();
             foreach (var e in contracts)
             {
                 MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
+            }
+
+            if (sorting != null)
+            {
+                var direction = ListSortDirection.Ascending;
+                if (CheckBoxDesc.Checked)
+                    direction = ListSortDirection.Descending;
+                MCRDataGridView.Sort(MCRDataGridView.Columns[(int)sorting], direction);
             }
         }
         private void MunicipalContractRegisterForm_Load(object sender, EventArgs e)
@@ -53,6 +67,23 @@ namespace pisV228._4
             var currentOrganization = contracts.First(x => x.MunicipalContractID == id);
             var formOrg = new MunicipalContractForm(controller, currentOrganization);
             formOrg.Show();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            int? sorting = ComboBoxSort.SelectedIndex;
+            if (sorting == -1) sorting = null;
+            MCRDataGridView.Rows.Clear();
+            UpdateRegister(null, sorting);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CheckBoxDesc_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }

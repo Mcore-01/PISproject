@@ -36,6 +36,7 @@ namespace pisV228._4
             Contractor = data[5].ToString();
             Customer = data[6].ToString();
         }
+
         public bool IsCorrect()
         {
             return true;
