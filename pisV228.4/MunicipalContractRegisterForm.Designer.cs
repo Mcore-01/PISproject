@@ -70,7 +70,8 @@
             this.MContractRegisterGBox.Location = new System.Drawing.Point(689, 65);
             this.MContractRegisterGBox.Margin = new System.Windows.Forms.Padding(4);
             this.MContractRegisterGBox.Name = "MContractRegisterGBox";
-            this.MContractRegisterGBox.Size = new System.Drawing.Size(228, 218);
+            this.MContractRegisterGBox.Padding = new System.Windows.Forms.Padding(4);
+            this.MContractRegisterGBox.Size = new System.Drawing.Size(304, 195);
             this.MContractRegisterGBox.TabIndex = 4;
             this.MContractRegisterGBox.TabStop = false;
             // 
@@ -211,7 +212,6 @@
             this.ClientSize = new System.Drawing.Size(1103, 677);
             this.Controls.Add(this.groupBox1);
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(827, 550);
             this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.MContractRegisterGBox);
             this.Controls.Add(this.MCRDataGridView);

@@ -82,6 +82,8 @@ namespace pisV228._4
                 return;
             string pathFile = saveFile.FileName;
             controller.Export(organizations, pathFile);
+        }    
+
         private void RemoveORButton_Click(object sender, EventArgs e)
         {
             if (ORDataGridView.CurrentRow == null)
