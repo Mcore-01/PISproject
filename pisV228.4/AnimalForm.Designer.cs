@@ -159,6 +159,7 @@
             // SaveButton
             // 
             this.SaveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.SaveButton.Location = new System.Drawing.Point(20, 19);
@@ -184,6 +185,7 @@
             // CancelChangeButton
             // 
             this.CancelChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelChangeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CancelChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CancelChangeButton.Location = new System.Drawing.Point(20, 72);

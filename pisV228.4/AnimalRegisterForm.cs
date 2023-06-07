@@ -86,7 +86,10 @@ namespace pisV228._4
             int id = Convert.ToInt32(ARDataGridView.CurrentRow.Cells[0].Value);
             var currentAnimal = animals.First(x => x.AnimalID == id);
             var form = new AnimalForm(controller, currentAnimal);
-            form.Show();
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void AnimalRegisterForm_FormClosed(object sender, FormClosedEventArgs e)
