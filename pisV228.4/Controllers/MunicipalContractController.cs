@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace pisV228._4
 {
@@ -25,6 +26,10 @@ namespace pisV228._4
         {
             return DataBase.GetMunicipalContractCard(id);
         }
+        public bool CanChangeCard()
+        {
+            return PermissonAction.CanChangeCard();
+        }
 
         public void AddCard(MunicipalContract record)
         {
@@ -43,6 +48,47 @@ namespace pisV228._4
 
             DataBase.AddMunicipalContract(record);
         }
+        
+        public void ChangeMunicipalContract(MunicipalContract record)
+        {
+            if (!record.IsCorrect())
+            {
+                MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Карточка изменена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DataBase.ChangeMunicipalContract(record);
+        }
+
+        internal void Export(List<MunicipalContract> contracts, string pathFile)
+        {
+            if (!PermissonAction.CanExport())
+            {
+                MessageBox.Show("Вы не можете экспортировать карточки!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Excel.Application excel = new Excel.Application();
+            excel.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
+
+            var contarctType = typeof(MunicipalContract);
+            var propertys = contarctType.GetProperties();
+            for (int i = 0; i < contracts.Count; i++)
+            {
+                for (int j = 0; j < propertys.Length; j++)
+                    wsh.Cells[i + 2, j + 1] = propertys[j].GetValue(contracts[i]);
+            }
+
+            for (int j = 0; j < propertys.Length; j++)
+            {
+                wsh.Cells[1, j + 1] = propertys[j].Name;
+                wsh.Columns[j + 1].AutoFit();
+            }
+            excel.Visible = true;
+            wsh.SaveAs(pathFile);
+
 
         public void RemoveCard(int id)
         {

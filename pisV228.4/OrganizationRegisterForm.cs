@@ -74,6 +74,14 @@ namespace pisV228._4
             formOrg.Show();
         }
 
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Execl files (*.xls)|*.xls";
+            if (saveFile.ShowDialog() == DialogResult.Cancel)
+                return;
+            string pathFile = saveFile.FileName;
+            controller.Export(organizations, pathFile);
         private void RemoveORButton_Click(object sender, EventArgs e)
         {
             if (ORDataGridView.CurrentRow == null)

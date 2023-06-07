@@ -51,5 +51,14 @@ namespace pisV228._4
         {
             return animalUsers.Contains(user.role);
         }
+        public bool CanChangeCard()
+        {
+            return user.role == "OperatorShelter";
+        }
+
+        internal bool CanExport()
+        {
+            return user.role == "OperatorShelter";
+        }
     }
 }

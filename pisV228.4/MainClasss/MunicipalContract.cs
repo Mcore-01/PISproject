@@ -30,24 +30,24 @@ namespace pisV228._4
         {
             try
             {
+                MunicipalContractID = Convert.ToInt32(data[0]);
                 Number = Convert.ToInt32(data[1]);
-                CostDayMaintenance = Convert.ToInt32(data[2]);
+                CostDayMaintenance = Convert.ToDecimal(data[2]);
                 DateConclusion = Convert.ToDateTime(data[3]);
                 DateAction = Convert.ToDateTime(data[4]);
-                Contractor = data[5].ToString();
-                Customer = data[6].ToString();
+                Contractor = Convert.ToString(data[5]);
+                Customer = Convert.ToString(data[6]);
             }
             catch
             {
-                IsCorrectCard = true;
+                IsCorrectCard = false;
             }
-            MunicipalContractID = Convert.ToInt32(data[0]);
-            
         }
         public bool IsCorrect()
         {
             return IsCorrectCard;
         }
-        private bool IsCorrectCard;
+  
+        private bool IsCorrectCard = true;
     }
 }

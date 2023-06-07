@@ -72,6 +72,15 @@ namespace pisV228._4
             controller.SaveAnimalRegister();
         }
 
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Execl files (*.xls)|*.xls";
+            if (saveFile.ShowDialog() == DialogResult.Cancel)
+                return;
+            string pathFile = saveFile.FileName;
+            controller.Export(animals, pathFile);
+            
         private void RemoveARButton_Click(object sender, EventArgs e)
         {
             if (ARDataGridView.CurrentRow == null)

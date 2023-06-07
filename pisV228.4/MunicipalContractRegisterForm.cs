@@ -56,6 +56,14 @@ namespace pisV228._4
             formOrg.Show();
         }
 
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Execl files (*.xls)|*.xls";
+            if (saveFile.ShowDialog() == DialogResult.Cancel)
+                return;
+            string pathFile = saveFile.FileName;
+            controller.Export(contracts, pathFile);
         private void AddMCRButton_Click(object sender, EventArgs e)
         {
             var formOrg = new MunicipalContractForm(controller);

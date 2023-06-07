@@ -20,6 +20,7 @@ namespace pisV228._4
         {
             InitializeComponent();
             this.controller = controller;
+            ChangeGroupBox.Visible = false;
             textBox1.Visible = false;
             label1.Visible = false;
         }
@@ -126,6 +127,36 @@ namespace pisV228._4
         private void CloseMCFButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void OpenChangeGroupBox(bool open)
+        {
+            foreach (var item in (this.Controls.OfType<TextBox>().Skip(1)))
+                item.ReadOnly = !open;
+            SaveButton.Visible = open;
+            CancelChangeButton.Visible = open;
+            ChangeButton.Visible = !open;
+        }
+
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (!controller.CanChangeCard())
+                MessageBox.Show("Вы не можете изменять карточку!", "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else OpenChangeGroupBox(true);
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            var data = new List<object>();
+            foreach (var item in (this.Controls.OfType<TextBox>()))
+                data.Add(item.Text);
+            controller.ChangeMunicipalContract(new MunicipalContract(data.ToArray()));
+            OpenChangeGroupBox(false);
+        }
+
+        private void CancelChangeButton_Click(object sender, EventArgs e)
+        {
+            OpenChangeGroupBox(false);
         }
     }
 }
