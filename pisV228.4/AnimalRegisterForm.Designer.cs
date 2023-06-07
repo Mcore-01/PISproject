@@ -32,6 +32,7 @@
             this.OpenARButton = new System.Windows.Forms.Button();
             this.AddARButton = new System.Windows.Forms.Button();
             this.ARDataGridView = new System.Windows.Forms.DataGridView();
+            this.ExportButton = new System.Windows.Forms.Button();
             this.AnimalRegiterGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +43,7 @@
             this.AnimalRegiterGBox.Controls.Add(this.AddARButton);
             this.AnimalRegiterGBox.Location = new System.Drawing.Point(559, 36);
             this.AnimalRegiterGBox.Name = "AnimalRegiterGBox";
-            this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 173);
+            this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 158);
             this.AnimalRegiterGBox.TabIndex = 0;
             this.AnimalRegiterGBox.TabStop = false;
             // 
@@ -86,11 +87,25 @@
             this.ARDataGridView.Size = new System.Drawing.Size(431, 530);
             this.ARDataGridView.TabIndex = 1;
             // 
+            // ExportButton
+            // 
+            this.ExportButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ExportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExportButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ExportButton.Location = new System.Drawing.Point(608, 225);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(126, 52);
+            this.ExportButton.TabIndex = 2;
+            this.ExportButton.Text = "Экспортировать в Excel";
+            this.ExportButton.UseVisualStyleBackColor = false;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
             // AnimalRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 530);
+            this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.ARDataGridView);
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";
@@ -110,6 +125,7 @@
         private System.Windows.Forms.Button OpenARButton;
         private System.Windows.Forms.Button AddARButton;
         private System.Windows.Forms.DataGridView ARDataGridView;
+        private System.Windows.Forms.Button ExportButton;
     }
 }
 

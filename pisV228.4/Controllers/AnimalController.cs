@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace pisV228._4
 {
@@ -64,6 +65,35 @@ namespace pisV228._4
         public void SaveAnimalRegister()
         {
             DataBase.WriteDataAnimals();
+        }
+
+        internal void Export(List<Animal> animals, string pathFile)
+        {
+            if (!PermissonAction.CanExport())
+            {
+                MessageBox.Show("Вы не можете экспортировать карточки!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Excel.Application excel = new Excel.Application();
+            excel.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
+
+            var animalType = typeof(Animal);
+            var propertys = animalType.GetProperties();
+            for (int i = 0; i < animals.Count; i++)
+            {
+                for (int j = 0; j < propertys.Length; j++)
+                    wsh.Cells[i + 2, j + 1] = propertys[j].GetValue(animals[i]);
+            }
+
+            for (int j = 0; j < propertys.Length; j++)
+            {
+                wsh.Cells[1, j + 1] = propertys[j].Name;
+                wsh.Columns[j + 1].AutoFit();
+            }
+            excel.Visible = true;
+            wsh.SaveAs(pathFile);
         }
     }
 }

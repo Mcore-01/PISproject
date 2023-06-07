@@ -26,5 +26,10 @@ namespace pisV228._4
         {
             return user.role == "OperatorShelter";
         }
+
+        internal bool CanExport()
+        {
+            return user.role == "OperatorShelter";
+        }
     }
 }
