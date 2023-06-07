@@ -32,9 +32,9 @@
             this.AddOFButton = new System.Windows.Forms.Button();
             this.CloseOFButton = new System.Windows.Forms.Button();
             this.ChangeGroupBox = new System.Windows.Forms.GroupBox();
+            this.CancelChangeButton = new System.Windows.Forms.Button();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.CancelChangeButton = new System.Windows.Forms.Button();
             this.buttonOFgroupbox.SuspendLayout();
             this.ChangeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,21 @@
             this.ChangeGroupBox.TabIndex = 8;
             this.ChangeGroupBox.TabStop = false;
             // 
+            // CancelChangeButton
+            // 
+            this.CancelChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelChangeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CancelChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CancelChangeButton.Location = new System.Drawing.Point(6, 73);
+            this.CancelChangeButton.Name = "CancelChangeButton";
+            this.CancelChangeButton.Size = new System.Drawing.Size(103, 34);
+            this.CancelChangeButton.TabIndex = 10;
+            this.CancelChangeButton.Text = "Отмена";
+            this.CancelChangeButton.UseVisualStyleBackColor = false;
+            this.CancelChangeButton.Visible = false;
+            this.CancelChangeButton.Click += new System.EventHandler(this.CancelChangeButton_Click);
+            // 
             // ChangeButton
             // 
             this.ChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -102,6 +117,7 @@
             // SaveButton
             // 
             this.SaveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.SaveButton.Location = new System.Drawing.Point(6, 19);
@@ -112,20 +128,6 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Visible = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // CancelChangeButton
-            // 
-            this.CancelChangeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CancelChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CancelChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CancelChangeButton.Location = new System.Drawing.Point(6, 73);
-            this.CancelChangeButton.Name = "CancelChangeButton";
-            this.CancelChangeButton.Size = new System.Drawing.Size(103, 34);
-            this.CancelChangeButton.TabIndex = 10;
-            this.CancelChangeButton.Text = "Отмена";
-            this.CancelChangeButton.UseVisualStyleBackColor = false;
-            this.CancelChangeButton.Visible = false;
-            this.CancelChangeButton.Click += new System.EventHandler(this.CancelChangeButton_Click);
             // 
             // OrganizationForm
             // 

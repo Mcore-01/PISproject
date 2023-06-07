@@ -85,7 +85,10 @@ namespace pisV228._4
             int id = Convert.ToInt32(ORDataGridView.CurrentRow.Cells[0].Value);
             var currentOrganization = organizations.First(x => x.OrganizationID == id);
             var formOrg = new OrganizationForm(controller, currentOrganization);
-            formOrg.Show();
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void ExportButton_Click(object sender, EventArgs e)

@@ -67,7 +67,10 @@ namespace pisV228._4
             int id = Convert.ToInt32(MCRDataGridView.CurrentRow.Cells[0].Value);
             var currentOrganization = contracts.First(x => x.MunicipalContractID == id);
             var formOrg = new MunicipalContractForm(controller, currentOrganization);
-            formOrg.Show();
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
