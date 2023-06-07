@@ -35,7 +35,7 @@ namespace pisV228._4
                 MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!PermissonAction.CanAddAnimal())
+            if (!PermissonAction.CanAddOrganization())
             {
                 MessageBox.Show("Вы не можете добавлять организации в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
