@@ -53,7 +53,7 @@ namespace pisV228._4
 
             DataBase.ChangeAnimal(record);
         }
-        public List<Animal> GetAnimalCards()
+        public List<Animal> GetCards()
         {
             return DataBase.GetAnimals();
         }
@@ -100,11 +100,6 @@ namespace pisV228._4
         public void RemoveCard(int id)
         {
             DataBase.RemoveAnimalCard(id);
-        }
-
-        public List<Animal> GetCards()
-        {
-            throw new NotImplementedException();
         }
     }
 }

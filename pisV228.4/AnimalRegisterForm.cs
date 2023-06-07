@@ -80,7 +80,8 @@ namespace pisV228._4
                 return;
             string pathFile = saveFile.FileName;
             controller.Export(animals, pathFile);
-            
+        }
+        
         private void RemoveARButton_Click(object sender, EventArgs e)
         {
             if (ARDataGridView.CurrentRow == null)
