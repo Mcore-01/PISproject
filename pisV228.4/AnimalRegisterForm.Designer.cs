@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.AnimalRegiterGBox = new System.Windows.Forms.GroupBox();
+            this.RemoveARButton = new System.Windows.Forms.Button();
             this.OpenARButton = new System.Windows.Forms.Button();
             this.AddARButton = new System.Windows.Forms.Button();
             this.ARDataGridView = new System.Windows.Forms.DataGridView();
-            this.RemoveARButton = new System.Windows.Forms.Button();
             this.AnimalRegiterGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -42,11 +42,24 @@
             this.AnimalRegiterGBox.Controls.Add(this.RemoveARButton);
             this.AnimalRegiterGBox.Controls.Add(this.OpenARButton);
             this.AnimalRegiterGBox.Controls.Add(this.AddARButton);
-            this.AnimalRegiterGBox.Location = new System.Drawing.Point(559, 36);
+            this.AnimalRegiterGBox.Location = new System.Drawing.Point(463, 43);
             this.AnimalRegiterGBox.Name = "AnimalRegiterGBox";
             this.AnimalRegiterGBox.Size = new System.Drawing.Size(228, 213);
             this.AnimalRegiterGBox.TabIndex = 0;
             this.AnimalRegiterGBox.TabStop = false;
+            // 
+            // RemoveARButton
+            // 
+            this.RemoveARButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RemoveARButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveARButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RemoveARButton.Location = new System.Drawing.Point(60, 156);
+            this.RemoveARButton.Name = "RemoveARButton";
+            this.RemoveARButton.Size = new System.Drawing.Size(103, 34);
+            this.RemoveARButton.TabIndex = 2;
+            this.RemoveARButton.Text = "Удалить";
+            this.RemoveARButton.UseVisualStyleBackColor = false;
+            this.RemoveARButton.Click += new System.EventHandler(this.RemoveARButton_Click);
             // 
             // OpenARButton
             // 
@@ -85,27 +98,15 @@
             this.ARDataGridView.ReadOnly = true;
             this.ARDataGridView.RowHeadersVisible = false;
             this.ARDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ARDataGridView.Size = new System.Drawing.Size(431, 530);
+            this.ARDataGridView.Size = new System.Drawing.Size(382, 530);
             this.ARDataGridView.TabIndex = 1;
-            // 
-            // RemoveARButton
-            // 
-            this.RemoveARButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RemoveARButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RemoveARButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RemoveARButton.Location = new System.Drawing.Point(60, 156);
-            this.RemoveARButton.Name = "RemoveARButton";
-            this.RemoveARButton.Size = new System.Drawing.Size(103, 34);
-            this.RemoveARButton.TabIndex = 2;
-            this.RemoveARButton.Text = "Удалить";
-            this.RemoveARButton.UseVisualStyleBackColor = false;
-            this.RemoveARButton.Click += new System.EventHandler(this.RemoveARButton_Click);
             // 
             // AnimalRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 530);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(788, 530);
             this.Controls.Add(this.ARDataGridView);
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";

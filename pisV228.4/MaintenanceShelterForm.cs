@@ -22,7 +22,8 @@ namespace pisV228._4
             this.controller = controller;
             PrevButtonMS.Visible = false;
             NextButtonMS.Visible = false;
-            comboBox1.Width = (this.ClientSize.Width);
+            //comboBox1.Width = (this.ClientSize.Width);
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         public MaintenanceShelterForm(MaintenanceShelterController controller, List<MaintenanceShelter> list)
         {

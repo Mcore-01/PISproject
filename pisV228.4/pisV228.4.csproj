@@ -72,6 +72,12 @@
       <DependentUpon>AnimalRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClasss\MaintenanceShelter.cs" />
+    <Compile Include="MainFormApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormApplication.Designer.cs">
+      <DependentUpon>MainFormApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintenanceShelterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalRegisterForm.resx">
       <DependentUpon>AnimalRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormApplication.resx">
+      <DependentUpon>MainFormApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintenanceShelterForm.resx">
       <DependentUpon>MaintenanceShelterForm.cs</DependentUpon>

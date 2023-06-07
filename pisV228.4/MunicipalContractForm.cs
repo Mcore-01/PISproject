@@ -101,6 +101,9 @@ namespace pisV228._4
 
             comboBox1.DisplayMember = "Name";
             comboBox2.DisplayMember = "Name";
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void AddMCFButton_Click(object sender, EventArgs e)
