@@ -183,7 +183,7 @@ namespace pisV228._4
 
         private void AddMainShelterButton_Click(object sender, EventArgs e)
         {
-            var formMS = new MaintenanceShelterForm(controllerMS);
+            var formMS = new MaintenanceShelterForm(controllerMS, currentAnimal);
             formMS.Show();
         }
     }

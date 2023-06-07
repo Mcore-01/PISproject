@@ -15,8 +15,9 @@ namespace pisV228._4
     {
         MaintenanceShelterController controller;
         List<MaintenanceShelter> maintenanceShelters;
+        Animal animal;
         int currentPage;
-        public MaintenanceShelterForm(MaintenanceShelterController controller)
+        public MaintenanceShelterForm(MaintenanceShelterController controller, Animal animal)
         {
             InitializeComponent();
             this.controller = controller;
@@ -24,6 +25,7 @@ namespace pisV228._4
             NextButtonMS.Visible = false;
             //comboBox1.Width = (this.ClientSize.Width);
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.animal = animal;
         }
         public MaintenanceShelterForm(MaintenanceShelterController controller, List<MaintenanceShelter> list)
         {
@@ -58,10 +60,18 @@ namespace pisV228._4
                 this.Controls.Add(textbox);
                 y += 16;
             }
+            this.Controls.OfType<TextBox>().ToList()[0].Visible = false;
+            this.Controls.OfType<TextBox>().ToList()[1].Visible = false;
+
+            this.Controls.OfType<Label>().ToList()[0].Visible = false;
+            this.Controls.OfType<Label>().ToList()[1].Visible = false;
             if (maintenanceShelters != null && maintenanceShelters.Count != 0)
             {
+                this.Controls.OfType<Label>().ToList()[0].Visible = true;
+                this.Controls.OfType<Label>().ToList()[1].Visible = true;
                 foreach (var textbox in this.Controls.OfType<TextBox>())
                 {
+                    textbox.Visible = true;
                     textbox.ReadOnly = true;
                 }
                 //comboBox1.Visible = false;
@@ -84,8 +94,14 @@ namespace pisV228._4
                 this.Controls.Add(textbox);
                 y += 16;
             }*/
-            List<MunicipalContract> organizationList = new MunicipalContractController(controller.user).GetCards();
+            /*this.Controls.OfType<TextBox>().ToList()[0].Visible = false;
+            this.Controls.OfType<Label>().ToList()[0].Visible = false;
 
+            this.Controls.OfType<TextBox>().ToList()[1].Visible = false;
+            this.Controls.OfType<Label>().ToList()[1].Visible = false;*/
+
+            List<MunicipalContract> organizationList = new MunicipalContractController(controller.user).GetCards();
+            
             comboBox1.DataSource = organizationList;
 
             comboBox1.ValueMember = "MunicipalContractID";
@@ -98,11 +114,15 @@ namespace pisV228._4
         private void AddMSFButton_Click(object sender, EventArgs e)
         {
             var data = new List<object>();
-            foreach (var item in (this.Controls.OfType<TextBox>()))
+            var textbox = this.Controls.OfType<TextBox>().ToList();
+            for (int i = 0; i < textbox.Count()-1; i++)
             {
-                data.Add(item.Text);
+                data.Add(textbox[i].Text);
             }
-            controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray()), this);
+            
+            data.Add(comboBox1.ValueMember);
+            //MessageBox.Show(String.Join(" ", textbox.Select(x => x.Text)) + comboBox1.ValueMember);
+            controller.AddMaintenanceShelterCard(new MaintenanceShelter(data.ToArray(), animal));
         }
 
         private void CloseMSFButton_Click(object sender, EventArgs e)
