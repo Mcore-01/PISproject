@@ -38,9 +38,9 @@
             this.CheckBoxDesc = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.ComboBoxSort = new System.Windows.Forms.ComboBox();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.AnimalRegiterGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -133,17 +133,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.CheckBoxDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.ComboBoxSort);
             this.groupBox1.Controls.Add(this.SearchButton);
             this.groupBox1.Location = new System.Drawing.Point(581, 383);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(448, 214);
+            this.groupBox1.Size = new System.Drawing.Size(500, 214);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -171,17 +171,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(300, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Фильтры:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(290, 60);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 5;
+            this.label1.Text = "Фильтр:";
             // 
             // ComboBoxSort
             // 
@@ -196,7 +188,7 @@
             this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SearchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SearchButton.Location = new System.Drawing.Point(289, 147);
+            this.SearchButton.Location = new System.Drawing.Point(331, 147);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(137, 42);
@@ -204,6 +196,13 @@
             this.SearchButton.Text = "Поиск";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(303, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 22);
+            this.textBox1.TabIndex = 9;
             // 
             // AnimalRegisterForm
             // 
@@ -241,9 +240,9 @@
         private System.Windows.Forms.CheckBox CheckBoxDesc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox ComboBoxSort;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

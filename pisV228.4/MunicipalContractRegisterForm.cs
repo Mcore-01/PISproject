@@ -36,13 +36,21 @@ namespace pisV228._4
 
             UpdateRegister();
         }
-        private void UpdateRegister(List<string> filters = null, int? sorting = null)
+        private void UpdateRegister(string filters = null, int? sorting = null)
         {
             MCRDataGridView.Rows.Clear();
             contracts = controller.GetCards();
             foreach (var e in contracts)
             {
-                MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
+                if (filters != null)
+                {
+                    if (e.MunicipalContractID.ToString() == filters || e.Number.ToString() == filters ||
+                        e.DateConclusion.ToString() == filters || e.Customer == filters || e.Contractor == filters)
+                    {
+                        MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
+                    }
+                }
+                else MCRDataGridView.Rows.Add(e.MunicipalContractID, e.Number, e.DateConclusion, e.Customer, e.Contractor);
             }
 
             if (sorting != null)
@@ -77,7 +85,9 @@ namespace pisV228._4
         {
             int? sorting = ComboBoxSort.SelectedIndex + 1;
             if (sorting == 0) sorting = null;
-            UpdateRegister(null, sorting);
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+            UpdateRegister(filters, sorting);
         }
 
         private void label1_Click(object sender, EventArgs e)

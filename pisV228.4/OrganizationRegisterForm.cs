@@ -36,13 +36,21 @@ namespace pisV228._4
             }
             UpdateRegister();
         }
-        private void UpdateRegister(List<string> filters = null, int? sorting = null)
+        private void UpdateRegister(string filters = null, int? sorting = null)
         {
             ORDataGridView.Rows.Clear();
             organizations = controller.GetCards();
             foreach (var e in organizations)
             {
-                ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
+                if (filters != null)
+                {
+                    if (e.OrganizationID.ToString() == filters || e.Name == filters ||
+                        e.INN == filters || e.KPP == filters || e.Locality == filters)
+                    {
+                        ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
+                    }
+                }
+                else ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
             }
 
             if (sorting != null)
@@ -116,7 +124,9 @@ namespace pisV228._4
         {
             int? sorting = ComboBoxSort.SelectedIndex + 1;
             if (sorting == 0) sorting = null;
-            UpdateRegister(null, sorting);
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+            UpdateRegister(filters, sorting);
         }
     }
 }
