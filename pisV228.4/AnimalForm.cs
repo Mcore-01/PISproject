@@ -33,6 +33,7 @@ namespace pisV228._4
             this.currentAnimal = currentAnimal;
             controllerMS = new MaintenanceShelterController(controller.user);
             buttonAFgroupbox.Visible = false;
+            pathPicture = currentAnimal.Photo;
         }
 
         private void AnimalForm_Load(object sender, EventArgs e)
@@ -207,29 +208,29 @@ namespace pisV228._4
             var data = new List<object>();
             foreach (var item in (this.Controls.OfType<TextBox>()))
                 data.Add(item.Text);
-            string newPath = "";
-            if (pathPicture != null && pathPicture != "")
-            {
-                var newNameFile = Path.GetFileName(pathPicture);
+            //string newPath = "";
+            //if (pathPicture != null && pathPicture != "")
+            //{
+            //    var newNameFile = Path.GetFileName(pathPicture);
 
-                var path = Path.Combine(
-                    new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
-                newPath = path + newNameFile;
+            //    var path = Path.Combine(
+            //        new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "PictureAnimal\\");
+            //    newPath = path + newNameFile;
 
-                try
-                {
-                    File.Copy(pathPicture, newPath);
-                }
-                catch (Exception)
-                {
-                    newPath += "1";
-                    File.Copy(pathPicture, newPath);
-                    newNameFile += "1";
-                }
+            //    try
+            //    {
+            //        File.Copy(pathPicture, newPath);
+            //    }
+            //    catch (Exception)
+            //    {
+            //        newPath += "1";
+            //        File.Copy(pathPicture, newPath);
+            //        newNameFile += "1";
+            //    }
 
-                newPath = newNameFile;
-            }
-            data.Add(newPath);
+            //    newPath = newNameFile;
+            //}
+            data.Add(pathPicture);
             controller.ChangeAnimalCard(new Animal(data.ToArray()));
             OpenChangeGroupBox(false);
         }
