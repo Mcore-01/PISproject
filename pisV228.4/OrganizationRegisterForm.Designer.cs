@@ -32,6 +32,7 @@
             this.OrganizationRegisterGBox = new System.Windows.Forms.GroupBox();
             this.OpenORButton = new System.Windows.Forms.Button();
             this.AddORButton = new System.Windows.Forms.Button();
+            this.ExportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ORDataGridView)).BeginInit();
             this.OrganizationRegisterGBox.SuspendLayout();
             this.SuspendLayout();
@@ -86,11 +87,25 @@
             this.AddORButton.UseVisualStyleBackColor = false;
             this.AddORButton.Click += new System.EventHandler(this.AddORButton_Click);
             // 
+            // ExportButton
+            // 
+            this.ExportButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ExportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExportButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ExportButton.Location = new System.Drawing.Point(575, 266);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(135, 45);
+            this.ExportButton.TabIndex = 4;
+            this.ExportButton.Text = "Экспортировать в Excel";
+            this.ExportButton.UseVisualStyleBackColor = false;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
             // OrganizationRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 530);
+            this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.OrganizationRegisterGBox);
             this.Controls.Add(this.ORDataGridView);
             this.Name = "OrganizationRegisterForm";
@@ -108,5 +123,6 @@
         private System.Windows.Forms.GroupBox OrganizationRegisterGBox;
         private System.Windows.Forms.Button OpenORButton;
         private System.Windows.Forms.Button AddORButton;
+        private System.Windows.Forms.Button ExportButton;
     }
 }

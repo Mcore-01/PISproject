@@ -69,5 +69,15 @@ namespace pisV228._4
             var formOrg = new OrganizationForm(controller, currentOrganization);
             formOrg.Show();
         }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Execl files (*.xls)|*.xls";
+            if (saveFile.ShowDialog() == DialogResult.Cancel)
+                return;
+            string pathFile = saveFile.FileName;
+            controller.Export(organizations, pathFile);
+        }
     }
 }
