@@ -37,13 +37,21 @@ namespace pisV228._4
             UpdateRegister();
         }
 
-        private void UpdateRegister(List<string> filters = null, int? sorting = null)
+        private void UpdateRegister(string filters = null, int? sorting = null)
         {
             ARDataGridView.Rows.Clear();
             animals = controller.GetCards();
             foreach (var e in animals)
             {
-                ARDataGridView.Rows.Add(e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality);
+                if (filters != null)
+                {
+                    if (e.AnimalID.ToString() == filters || e.Category == filters || 
+                        e.Gender == filters || e.NameAnimal == filters || e.Locality == filters)
+                    {
+                        ARDataGridView.Rows.Add(e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality);
+                    }
+                }
+                else ARDataGridView.Rows.Add(e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality);
             }
             if (sorting != null)
             {
@@ -52,6 +60,7 @@ namespace pisV228._4
                     direction = ListSortDirection.Descending;
                 ARDataGridView.Sort(ARDataGridView.Columns[(int)sorting], direction);
             }
+
         }
 
         private void AddARButton_Click(object sender, EventArgs e)
@@ -110,7 +119,9 @@ namespace pisV228._4
         {
             int? sorting = ComboBoxSort.SelectedIndex + 1;
             if (sorting == 0) sorting = null;
-            UpdateRegister(null, sorting);
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+            UpdateRegister(filters, sorting);
         }
     }
 }
