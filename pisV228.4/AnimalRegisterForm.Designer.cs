@@ -36,7 +36,6 @@
             this.ExportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CheckBoxDesc = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ComboBoxSort = new System.Windows.Forms.ComboBox();
@@ -134,7 +133,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.CheckBoxDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.ComboBoxSort);
@@ -153,16 +151,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 22);
             this.textBox1.TabIndex = 9;
-            // 
-            // CheckBoxDesc
-            // 
-            this.CheckBoxDesc.AutoSize = true;
-            this.CheckBoxDesc.Location = new System.Drawing.Point(35, 160);
-            this.CheckBoxDesc.Name = "CheckBoxDesc";
-            this.CheckBoxDesc.Size = new System.Drawing.Size(118, 21);
-            this.CheckBoxDesc.TabIndex = 8;
-            this.CheckBoxDesc.Text = "По убыванию";
-            this.CheckBoxDesc.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -195,13 +183,14 @@
             this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SearchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SearchButton.Location = new System.Drawing.Point(331, 147);
+            this.SearchButton.Location = new System.Drawing.Point(248, 151);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(137, 42);
             this.SearchButton.TabIndex = 2;
             this.SearchButton.Text = "Поиск";
             this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // AnimalRegisterForm
             // 
@@ -236,7 +225,6 @@
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button RemoveARButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox CheckBoxDesc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBoxSort;

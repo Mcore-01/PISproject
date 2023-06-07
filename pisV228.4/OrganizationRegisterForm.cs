@@ -39,40 +39,14 @@ namespace pisV228._4
         private void UpdateRegister(string filters = null, int? sorting = null)
         {
             ORDataGridView.Rows.Clear();
-            organizations = controller.GetCards();
-            foreach (var e in organizations)
+            organizations = controller.GetSortedCards(filters, sorting);
+            foreach (var organization in organizations)
             {
-                if (filters != null)
-                {
-                    if (e.OrganizationID.ToString() == filters || e.Name == filters ||
-                        e.INN == filters || e.KPP == filters || e.Locality == filters)
-                    {
-                        ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
-                    }
-                }
-                else ORDataGridView.Rows.Add(e.OrganizationID, e.Name, e.INN, e.KPP, e.Locality);
-            }
-
-            if (sorting != null)
-            {
-                var direction = ListSortDirection.Ascending;
-                if (CheckBoxDesc.Checked)
-                    direction = ListSortDirection.Descending;
-                ORDataGridView.Sort(ORDataGridView.Columns[(int)sorting], direction);
+                ORDataGridView.Rows.Add(organization.OrganizationID, organization.Name, organization.INN, organization.KPP, organization.Locality);
             }
         }
         private void OrganizationRegisterForm_Load(object sender, EventArgs e)
         {
-            /*var animalType = typeof(Organization);
-            var propertys = animalType.GetProperties();
-            StringBuilder str = new StringBuilder();
-            for (int i = 0; i < propertys.Length; i++)
-            {
-                var labelAtt = propertys[i].GetCustomAttributes(true).OfType<LabelAtt>().First();
-                str.Append(labelAtt.LabelText + ", ");
-                
-            }
-            textBox1.Text = str.ToString();*/
         }
 
         private void AddORButton_Click(object sender, EventArgs e)
@@ -106,7 +80,13 @@ namespace pisV228._4
             if (saveFile.ShowDialog() == DialogResult.Cancel)
                 return;
             string pathFile = saveFile.FileName;
-            controller.Export(organizations, pathFile);
+
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+
+            controller.Export(sorting, filters, pathFile);
         }    
 
         private void RemoveORButton_Click(object sender, EventArgs e)

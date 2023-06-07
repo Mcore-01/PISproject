@@ -39,8 +39,8 @@ namespace pisV228._4
             excel.Workbooks.Add();
             Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
 
-            var organizationType = typeof(Organization);
-            var propertys = organizationType.GetProperties();
+            var contarctType = typeof(MunicipalContract);
+            var propertys = contarctType.GetProperties();
             for (int i = 0; i < contracts.Count; i++)
             {
                 for (int j = 0; j < propertys.Length; j++)
@@ -62,15 +62,15 @@ namespace pisV228._4
             excel.Workbooks.Add();
             Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
 
-            var organizationType = typeof(Organization);
+            var organizationType = typeof(Animal);
             var propertys = organizationType.GetProperties();
             for (int i = 0; i < animals.Count; i++)
             {
-                for (int j = 0; j < propertys.Length; j++)
+                for (int j = 0; j < propertys.Length - 3; j++)
                     wsh.Cells[i + 2, j + 1] = propertys[j].GetValue(animals[i]);
             }
 
-            for (int j = 0; j < propertys.Length; j++)
+            for (int j = 0; j < propertys.Length - 3; j++)
             {
                 wsh.Cells[1, j + 1] = propertys[j].Name;
                 wsh.Columns[j + 1].AutoFit();

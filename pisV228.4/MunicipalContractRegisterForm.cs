@@ -90,7 +90,13 @@ namespace pisV228._4
             if (saveFile.ShowDialog() == DialogResult.Cancel)
                 return;
             string pathFile = saveFile.FileName;
-            controller.Export(contracts, pathFile);
+
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+
+            controller.Export(sorting, filters, pathFile);
         }
 
         private void AddMCRButton_Click(object sender, EventArgs e)

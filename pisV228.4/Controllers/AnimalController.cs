@@ -8,7 +8,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace pisV228._4
 {
-    public class AnimalController : IController<Animal>//Интерфейс не реализован, выбрасывается ошибка
+    public class AnimalController : IController<Animal>
     {
         public User user;
         private PermissonAction PermissonAction;
@@ -60,7 +60,6 @@ namespace pisV228._4
 
         public Animal GetCard(int animalID)
         {
-
             return DataBase.GetAnimalCard(animalID);
         }
 
@@ -69,14 +68,14 @@ namespace pisV228._4
             DataBase.WriteDataAnimals();
         }
 
-        internal void Export(List<Animal> animals, string pathFile)
+        internal void Export(int? sorting, string filters, string pathFile)
         {
             if (!PermissonAction.CanExport())
             {
                 MessageBox.Show("Вы не можете экспортировать карточки!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            var animals = GetSortedCards(filters, sorting);
             ReportMaker.MakeReportAnimals(animals, pathFile);
         }
         
@@ -85,6 +84,45 @@ namespace pisV228._4
             DataBase.RemoveAnimalCard(id);
         }
 
-        
+        public List<Animal> GetSortedCards(string filters = null, int? sorting = null)
+        {
+            var listAnimals = new List<Animal>();
+            var contracts = this.GetCards();
+            foreach (var e in contracts)
+            {
+                var animal = new Animal(new object[] { 0 });
+                //e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality
+                animal.AnimalID = e.AnimalID;
+                animal.Category = e.Category;
+                animal.Gender = e.Gender;
+                animal.NameAnimal = e.NameAnimal;
+                animal.Locality = e.Locality;
+
+                if (filters != null)
+                {
+                    if (e.AnimalID.ToString() == filters || e.Category == filters ||
+                        e.Gender == filters || e.NameAnimal == filters || e.Locality == filters)
+                    {
+
+                        listAnimals.Add(animal);
+                    }
+                }
+                else listAnimals.Add(animal);
+            }
+
+            if (sorting != null)
+            {
+                if (sorting == 1)
+                    listAnimals = listAnimals.OrderBy(x => x.Category).ToList();
+                else if (sorting == 2)
+                    listAnimals = listAnimals.OrderBy(x => x.Gender).ToList();
+                else if (sorting == 3)
+                    listAnimals = listAnimals.OrderBy(x => x.NameAnimal).ToList();
+                else if (sorting == 4)
+                    listAnimals = listAnimals.OrderBy(x => x.Locality).ToList();
+            }
+
+            return listAnimals;
+        }
     }
 }

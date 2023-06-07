@@ -35,12 +35,11 @@
             this.AddORButton = new System.Windows.Forms.Button();
             this.ExportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CheckBoxDesc = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ComboBoxSort = new System.Windows.Forms.ComboBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ORDataGridView)).BeginInit();
             this.OrganizationRegisterGBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -53,7 +52,7 @@
             this.ORDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ORDataGridView.Dock = System.Windows.Forms.DockStyle.Left;
             this.ORDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.ORDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ORDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.ORDataGridView.Name = "ORDataGridView";
             this.ORDataGridView.ReadOnly = true;
             this.ORDataGridView.RowHeadersVisible = false;
@@ -68,9 +67,9 @@
             this.OrganizationRegisterGBox.Controls.Add(this.OpenORButton);
             this.OrganizationRegisterGBox.Controls.Add(this.AddORButton);
             this.OrganizationRegisterGBox.Location = new System.Drawing.Point(711, 60);
-            this.OrganizationRegisterGBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OrganizationRegisterGBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrganizationRegisterGBox.Name = "OrganizationRegisterGBox";
-            this.OrganizationRegisterGBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OrganizationRegisterGBox.Padding = new System.Windows.Forms.Padding(4);
             this.OrganizationRegisterGBox.Size = new System.Drawing.Size(304, 261);
             this.OrganizationRegisterGBox.TabIndex = 3;
             this.OrganizationRegisterGBox.TabStop = false;
@@ -81,7 +80,7 @@
             this.RemoveORButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RemoveORButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.RemoveORButton.Location = new System.Drawing.Point(80, 191);
-            this.RemoveORButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RemoveORButton.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveORButton.Name = "RemoveORButton";
             this.RemoveORButton.Size = new System.Drawing.Size(137, 42);
             this.RemoveORButton.TabIndex = 2;
@@ -95,7 +94,7 @@
             this.OpenORButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OpenORButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.OpenORButton.Location = new System.Drawing.Point(80, 114);
-            this.OpenORButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OpenORButton.Margin = new System.Windows.Forms.Padding(4);
             this.OpenORButton.Name = "OpenORButton";
             this.OpenORButton.Size = new System.Drawing.Size(137, 42);
             this.OpenORButton.TabIndex = 1;
@@ -109,7 +108,7 @@
             this.AddORButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddORButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddORButton.Location = new System.Drawing.Point(80, 37);
-            this.AddORButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddORButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddORButton.Name = "AddORButton";
             this.AddORButton.Size = new System.Drawing.Size(137, 42);
             this.AddORButton.TabIndex = 0;
@@ -123,7 +122,7 @@
             this.ExportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ExportButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ExportButton.Location = new System.Drawing.Point(774, 343);
-            this.ExportButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExportButton.Margin = new System.Windows.Forms.Padding(4);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(180, 55);
             this.ExportButton.TabIndex = 4;
@@ -134,7 +133,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.CheckBoxDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.ComboBoxSort);
@@ -147,15 +145,12 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
-            // CheckBoxDesc
+            // textBox1
             // 
-            this.CheckBoxDesc.AutoSize = true;
-            this.CheckBoxDesc.Location = new System.Drawing.Point(35, 160);
-            this.CheckBoxDesc.Name = "CheckBoxDesc";
-            this.CheckBoxDesc.Size = new System.Drawing.Size(118, 21);
-            this.CheckBoxDesc.TabIndex = 8;
-            this.CheckBoxDesc.Text = "По убыванию";
-            this.CheckBoxDesc.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(289, 62);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(138, 22);
+            this.textBox1.TabIndex = 9;
             // 
             // label2
             // 
@@ -188,7 +183,7 @@
             this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SearchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SearchButton.Location = new System.Drawing.Point(289, 147);
+            this.SearchButton.Location = new System.Drawing.Point(242, 145);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(137, 42);
@@ -196,13 +191,6 @@
             this.SearchButton.Text = "Поиск";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(289, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 22);
-            this.textBox1.TabIndex = 9;
             // 
             // OrganizationRegisterForm
             // 
@@ -214,7 +202,7 @@
             this.Controls.Add(this.ExportButton);
             this.Controls.Add(this.OrganizationRegisterGBox);
             this.Controls.Add(this.ORDataGridView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrganizationRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты поиска организации";
@@ -236,7 +224,6 @@
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button RemoveORButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox CheckBoxDesc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBoxSort;

@@ -28,16 +28,21 @@ namespace pisV228._4
             ARDataGridView.Columns[2].Width = 80;
             ARDataGridView.Columns[3].Width = 80;
             ARDataGridView.Columns[4].Width = 80;
+            var columns = ARDataGridView.Columns;
+            for (int i = 1; i < columns.Count; i++)
+            {
+                ComboBoxSort.Items.Add(columns[i].HeaderText);//ToString());
+            }
             UpdateRegister();
         }
 
-        private void UpdateRegister()
+        private void UpdateRegister(string filters = null, int? sorting = null)
         {
             ARDataGridView.Rows.Clear();
-            animals = controller.GetCards();
-            foreach (var e in animals)
+            animals = controller.GetSortedCards(filters, sorting);
+            foreach (var animal in animals)
             {
-                ARDataGridView.Rows.Add(e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality);
+                ARDataGridView.Rows.Add(animal.AnimalID, animal.Category, animal.Gender, animal.NameAnimal, animal.Locality);
             }
         }
 
@@ -79,7 +84,13 @@ namespace pisV228._4
             if (saveFile.ShowDialog() == DialogResult.Cancel)
                 return;
             string pathFile = saveFile.FileName;
-            controller.Export(animals, pathFile);
+
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+
+            controller.Export(sorting, filters, pathFile);
         }
 
         private void RemoveARButton_Click(object sender, EventArgs e)
@@ -91,6 +102,15 @@ namespace pisV228._4
             int id = Convert.ToInt32(ARDataGridView.CurrentRow.Cells[0].Value);
             ARDataGridView.CurrentRow.Visible = false;
             controller.RemoveCard(id);
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            int? sorting = ComboBoxSort.SelectedIndex + 1;
+            if (sorting == 0) sorting = null;
+            string filters = textBox1.Text;
+            if (filters == "") filters = null;
+            UpdateRegister(filters, sorting);
         }
     }
 }

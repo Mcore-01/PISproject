@@ -61,7 +61,7 @@ namespace pisV228._4
             DataBase.ChangeMunicipalContract(record);
         }
 
-        internal void Export(List<MunicipalContract> contracts, string pathFile)
+        internal void Export(int? sorting, string filters, string pathFile)
         {
             if (!PermissonAction.CanExport())
             {
@@ -69,7 +69,14 @@ namespace pisV228._4
                 return;
             }
 
-            ReportMaker.MakeReportContracts(contracts, pathFile);
+            var contracts = this.GetSortedCards(filters, sorting);
+
+            var fullcontracts = new List<MunicipalContract>();
+            foreach (var e in contracts)
+            {
+                fullcontracts.Add(this.GetCard(e.MunicipalContractID));
+            }
+            ReportMaker.MakeReportContracts(fullcontracts, pathFile);
         }
 
         public void RemoveCard(int id)
@@ -77,7 +84,7 @@ namespace pisV228._4
             DataBase.RemoveMunicipalContractCard(id);
         }
 
-        public List<MunicipalContract> GetSortedCards(string filters = null, int? sorting = null, bool toDesc = false)
+        public List<MunicipalContract> GetSortedCards(string filters = null, int? sorting = null)
         {
             var listContr = new List<MunicipalContract>();
             var contracts = this.GetCards();
@@ -104,13 +111,14 @@ namespace pisV228._4
 
             if (sorting != null)
             {
-                var type = typeof(MunicipalContract);
-                var props = type.GetProperties();
-                listContr.Sort();
-                //if (toDesc)
-
-/*                if (CheckBoxDesc.Checked)
-                    MCRDataGridView.Sort(MCRDataGridView.Columns[(int)sorting], direction);*/
+                if (sorting == 1)
+                    listContr = listContr.OrderBy(x => x.Number).ToList();
+                else if (sorting == 2)
+                    listContr = listContr.OrderBy(x => x.DateConclusion).ToList();
+                else if (sorting == 3)
+                    listContr = listContr.OrderBy(x => x.Customer).ToList();
+                else if (sorting == 4)
+                    listContr = listContr.OrderBy(x => x.Contractor).ToList();
             }
 
             return listContr;

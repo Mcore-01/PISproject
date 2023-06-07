@@ -30,16 +30,15 @@
         {
             this.MCRDataGridView = new System.Windows.Forms.DataGridView();
             this.MContractRegisterGBox = new System.Windows.Forms.GroupBox();
-            this.RemoveMCRButton = new System.Windows.Forms.Button();
             this.OpenMCRButton = new System.Windows.Forms.Button();
             this.AddMCRButton = new System.Windows.Forms.Button();
+            this.RemoveMCRButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CheckBoxDesc = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.ComboBoxSort = new System.Windows.Forms.ComboBox();
             this.ExportButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.MCRDataGridView)).BeginInit();
             this.MContractRegisterGBox.SuspendLayout();
@@ -74,19 +73,6 @@
             this.MContractRegisterGBox.TabIndex = 4;
             this.MContractRegisterGBox.TabStop = false;
             // 
-            // RemoveMCRButton
-            // 
-            this.RemoveMCRButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RemoveMCRButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RemoveMCRButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RemoveMCRButton.Location = new System.Drawing.Point(769, 245);
-            this.RemoveMCRButton.Name = "RemoveMCRButton";
-            this.RemoveMCRButton.Size = new System.Drawing.Size(137, 46);
-            this.RemoveMCRButton.TabIndex = 2;
-            this.RemoveMCRButton.Text = "Удалить";
-            this.RemoveMCRButton.UseVisualStyleBackColor = false;
-            this.RemoveMCRButton.Click += new System.EventHandler(this.RemoveMCRButton_Click);
-            // 
             // OpenMCRButton
             // 
             this.OpenMCRButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -115,12 +101,25 @@
             this.AddMCRButton.UseVisualStyleBackColor = false;
             this.AddMCRButton.Click += new System.EventHandler(this.AddMCRButton_Click);
             // 
+            // RemoveMCRButton
+            // 
+            this.RemoveMCRButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RemoveMCRButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveMCRButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RemoveMCRButton.Location = new System.Drawing.Point(769, 245);
+            this.RemoveMCRButton.Name = "RemoveMCRButton";
+            this.RemoveMCRButton.Size = new System.Drawing.Size(137, 46);
+            this.RemoveMCRButton.TabIndex = 2;
+            this.RemoveMCRButton.Text = "Удалить";
+            this.RemoveMCRButton.UseVisualStyleBackColor = false;
+            this.RemoveMCRButton.Click += new System.EventHandler(this.RemoveMCRButton_Click);
+            // 
             // SearchButton
             // 
             this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SearchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SearchButton.Location = new System.Drawing.Point(289, 147);
+            this.SearchButton.Location = new System.Drawing.Point(226, 146);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(137, 42);
@@ -132,7 +131,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.CheckBoxDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.ComboBoxSort);
@@ -145,17 +143,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // CheckBoxDesc
-            // 
-            this.CheckBoxDesc.AutoSize = true;
-            this.CheckBoxDesc.Location = new System.Drawing.Point(35, 160);
-            this.CheckBoxDesc.Name = "CheckBoxDesc";
-            this.CheckBoxDesc.Size = new System.Drawing.Size(118, 21);
-            this.CheckBoxDesc.TabIndex = 8;
-            this.CheckBoxDesc.Text = "По убыванию";
-            this.CheckBoxDesc.UseVisualStyleBackColor = true;
-            this.CheckBoxDesc.CheckedChanged += new System.EventHandler(this.CheckBoxDesc_CheckedChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -164,16 +151,6 @@
             this.label2.Size = new System.Drawing.Size(90, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Сортировка:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(300, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Фильтр:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ComboBoxSort
             // 
@@ -195,6 +172,16 @@
             this.ExportButton.Text = "Экспортировать в Excel";
             this.ExportButton.UseVisualStyleBackColor = false;
             this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(300, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Фильтр:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -236,11 +223,10 @@
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBoxSort;
-        private System.Windows.Forms.CheckBox CheckBoxDesc;
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button RemoveMCRButton;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -45,14 +45,14 @@ namespace pisV228._4
                 ChipNumber = Convert.ToInt32(data[5]);
                 NameAnimal = Convert.ToString(data[6]);
                 SpecialSings = Convert.ToString(data[7]);
-                PresenceSingsOwner = Convert.ToString(data[8]);      
+                PresenceSingsOwner = Convert.ToString(data[8]);
+                AnimalID = Convert.ToInt32(data[0]);
+                Photo = Convert.ToString(data[9]);
             }
             catch 
             {
                 IsCorrectCard = true;     
             }
-            AnimalID = Convert.ToInt32(data[0]);
-            Photo = Convert.ToString(data[9]);
         }
         public bool IsCorrect()
         {
