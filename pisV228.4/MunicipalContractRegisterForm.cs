@@ -95,6 +95,8 @@ namespace pisV228._4
                 return;
             string pathFile = saveFile.FileName;
             controller.Export(contracts, pathFile);
+        }
+
         private void AddMCRButton_Click(object sender, EventArgs e)
         {
             var formOrg = new MunicipalContractForm(controller);

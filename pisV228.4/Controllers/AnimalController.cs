@@ -8,7 +8,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace pisV228._4
 {
-    public class AnimalController : IController<Animal>
+    public class AnimalController : IController<Animal>//Интерфейс не реализован, выбрасывается ошибка
     {
         public User user;
         private PermissonAction PermissonAction;
@@ -95,10 +95,16 @@ namespace pisV228._4
             }
             excel.Visible = true;
             wsh.SaveAs(pathFile);
-            
+        }
+        
         public void RemoveCard(int id)
         {
             DataBase.RemoveAnimalCard(id);
+        }
+
+        public List<Animal> GetCards()
+        {
+            throw new NotImplementedException();
         }
     }
 }

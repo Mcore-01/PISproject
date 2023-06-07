@@ -91,7 +91,8 @@ namespace pisV228._4
             }
             excel.Visible = true;
             wsh.SaveAs(pathFile);
-
+        }
+        
         public void RemoveCard(int id)
         {
             DataBase.RemoveOrganizationCard(id);
