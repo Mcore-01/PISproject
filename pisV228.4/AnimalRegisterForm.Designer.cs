@@ -98,7 +98,7 @@
             this.ARDataGridView.ReadOnly = true;
             this.ARDataGridView.RowHeadersVisible = false;
             this.ARDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ARDataGridView.Size = new System.Drawing.Size(382, 530);
+            this.ARDataGridView.Size = new System.Drawing.Size(388, 530);
             this.ARDataGridView.TabIndex = 1;
             // 
             // AnimalRegisterForm
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(788, 530);
+            this.ClientSize = new System.Drawing.Size(770, 530);
             this.Controls.Add(this.ARDataGridView);
             this.Controls.Add(this.AnimalRegiterGBox);
             this.Name = "AnimalRegisterForm";

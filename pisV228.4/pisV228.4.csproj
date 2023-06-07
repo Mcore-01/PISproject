@@ -161,10 +161,13 @@
     <Folder Include="PictureAnimal\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBaseFile\DataContracts.txt" />
-    <Content Include="DataBaseFile\DataMainShelters.txt" />
     <Content Include="DataBaseFile\DataAnimals - Копировать.txt" />
+    <Content Include="DataBaseFile\DataContracts - Копировать.txt" />
+    <Content Include="DataBaseFile\DataContracts.txt" />
+    <Content Include="DataBaseFile\DataMainShelters - Копировать.txt" />
+    <Content Include="DataBaseFile\DataMainShelters.txt" />
     <Content Include="DataBaseFile\DataAnimals.txt" />
+    <Content Include="DataBaseFile\DataOrganizations - Копировать.txt" />
     <Content Include="DataBaseFile\DataOrganizations.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

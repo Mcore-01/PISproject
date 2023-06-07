@@ -112,6 +112,7 @@
             this.Name = "OrganizationRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты поиска организации";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrganizationRegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.OrganizationRegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ORDataGridView)).EndInit();
             this.OrganizationRegisterGBox.ResumeLayout(false);

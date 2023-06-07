@@ -84,5 +84,10 @@ namespace pisV228._4
             ORDataGridView.CurrentRow.Visible = false;
             controller.RemoveCard(id);
         }
+
+        private void OrganizationRegisterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            controller.SaveOrganizationRegister();
+        }
     }
 }

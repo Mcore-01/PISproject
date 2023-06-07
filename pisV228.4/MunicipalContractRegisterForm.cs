@@ -75,5 +75,10 @@ namespace pisV228._4
             MCRDataGridView.CurrentRow.Visible = false;
             controller.RemoveCard(id);
         }
+
+        private void MunicipalContractRegisterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            controller.SaveMunicipalContractRegister();
+        }
     }
 }

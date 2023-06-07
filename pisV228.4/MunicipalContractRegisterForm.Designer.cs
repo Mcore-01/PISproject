@@ -112,6 +112,7 @@
             this.Name = "MunicipalContractRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты поиска контрактов";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MunicipalContractRegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.MunicipalContractRegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MCRDataGridView)).EndInit();
             this.MContractRegisterGBox.ResumeLayout(false);
