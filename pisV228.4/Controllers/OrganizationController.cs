@@ -50,5 +50,10 @@ namespace pisV228._4
         {
             DataBase.RemoveOrganizationCard(id);
         }
+
+        public void SaveOrganizationRegister()
+        {
+            DataBase.WriteDataOrganization();
+        }
     }
 }

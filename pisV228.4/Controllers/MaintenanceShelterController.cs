@@ -36,13 +36,8 @@ namespace pisV228._4
         {
             return DataBase.GetMaintenanceShelter(animal);
         }
-/*
-        public Animal GetAnimalCard(int animalID)
-        {
-            return DataBase.GetAnimalCard(animalID);
-        }
 
-        public void SaveAnimalRegister()
+        /*public void SaveAnimalRegister()
         {
             DataBase.WriteDataAnimals();
         }*/

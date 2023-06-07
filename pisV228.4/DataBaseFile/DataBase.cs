@@ -88,8 +88,8 @@ namespace pisV228._4
             animalID = readedData.Max(x=>x.AnimalID);
             return readedData;
         }
-       
 
+        
         public static void WriteDataAnimals()
         {
             var path = Path.Combine(
@@ -98,6 +98,21 @@ namespace pisV228._4
             //File.WriteAllLines(, data);
         }
 
+        public static void WriteDataMunicipalContracts()
+        {
+            var path = Path.Combine(
+                new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "DataBaseFile\\DataContracts.txt");
+            WriteData(path, municipalContracts);
+            //File.WriteAllLines(, data);
+        }
+
+        public static void WriteDataOrganization()
+        {
+            var path = Path.Combine(
+                new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "DataBaseFile\\DataOrganizations.txt");
+            WriteData(path, organizations);
+            //File.WriteAllLines(, data);
+        }
         private static List<MaintenanceShelter> ReadDataMS()
         {
             var path = Path.Combine(

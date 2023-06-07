@@ -48,5 +48,10 @@ namespace pisV228._4
         {
             DataBase.RemoveMunicipalContractCard(id);
         }
+
+        public void SaveMunicipalContractRegister()
+        {
+            DataBase.WriteDataMunicipalContracts();
+        }
     }
 }
