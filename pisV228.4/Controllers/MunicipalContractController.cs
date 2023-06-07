@@ -33,7 +33,7 @@ namespace pisV228._4
                 MessageBox.Show("Данные были некорректны!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!PermissonAction.CanAddAnimal())
+            if (!PermissonAction.CanAddMunicipalContract())
             {
                 MessageBox.Show("Вы не можете добавлять контракты в реестр!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -42,6 +42,11 @@ namespace pisV228._4
             MessageBox.Show("Добавлен", "Контракт", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DataBase.AddMunicipalContract(record);
+        }
+
+        public void RemoveCard(int id)
+        {
+            DataBase.RemoveMunicipalContractCard(id);
         }
     }
 }

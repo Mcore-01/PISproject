@@ -48,7 +48,15 @@ namespace pisV228._4
                 var textbox = new TextBox { Top = y, Left = label.Width, Width = (this.ClientSize.Width), Height = 16 };
                 if (currentAnimal != null)
                 {
-                    textbox.Text = propertys[i].GetValue(currentAnimal).ToString();
+                    if (propertys[i].PropertyType == typeof(DateTime))
+                    {
+                        textbox.Text = string.Format("{0:dd/MM/yyyy}", propertys[i].GetValue(currentAnimal));
+                    }
+                    else
+                    {
+
+                        textbox.Text = propertys[i].GetValue(currentAnimal).ToString();
+                    }
                 }
                 textbox.Name = $"{propertys[i].Name}TB";
                 this.Controls.Add(label);
@@ -108,7 +116,7 @@ namespace pisV228._4
             }
             data[0] = 1;
             data.Add(newPath);
-            controller.AddAnimalCard(new Animal(data.ToArray()));
+            controller.AddCard(new Animal(data.ToArray()));
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)

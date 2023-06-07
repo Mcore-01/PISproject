@@ -30,6 +30,7 @@
         {
             this.ORDataGridView = new System.Windows.Forms.DataGridView();
             this.OrganizationRegisterGBox = new System.Windows.Forms.GroupBox();
+            this.RemoveORButton = new System.Windows.Forms.Button();
             this.OpenORButton = new System.Windows.Forms.Button();
             this.AddORButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ORDataGridView)).BeginInit();
@@ -52,13 +53,27 @@
             // 
             // OrganizationRegisterGBox
             // 
+            this.OrganizationRegisterGBox.Controls.Add(this.RemoveORButton);
             this.OrganizationRegisterGBox.Controls.Add(this.OpenORButton);
             this.OrganizationRegisterGBox.Controls.Add(this.AddORButton);
             this.OrganizationRegisterGBox.Location = new System.Drawing.Point(533, 49);
             this.OrganizationRegisterGBox.Name = "OrganizationRegisterGBox";
-            this.OrganizationRegisterGBox.Size = new System.Drawing.Size(228, 173);
+            this.OrganizationRegisterGBox.Size = new System.Drawing.Size(228, 212);
             this.OrganizationRegisterGBox.TabIndex = 3;
             this.OrganizationRegisterGBox.TabStop = false;
+            // 
+            // RemoveORButton
+            // 
+            this.RemoveORButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RemoveORButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveORButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RemoveORButton.Location = new System.Drawing.Point(60, 155);
+            this.RemoveORButton.Name = "RemoveORButton";
+            this.RemoveORButton.Size = new System.Drawing.Size(103, 34);
+            this.RemoveORButton.TabIndex = 2;
+            this.RemoveORButton.Text = "Удалить";
+            this.RemoveORButton.UseVisualStyleBackColor = false;
+            this.RemoveORButton.Click += new System.EventHandler(this.RemoveORButton_Click);
             // 
             // OpenORButton
             // 
@@ -90,10 +105,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(844, 530);
             this.Controls.Add(this.OrganizationRegisterGBox);
             this.Controls.Add(this.ORDataGridView);
             this.Name = "OrganizationRegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты поиска организации";
             this.Load += new System.EventHandler(this.OrganizationRegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ORDataGridView)).EndInit();
@@ -108,5 +125,6 @@
         private System.Windows.Forms.GroupBox OrganizationRegisterGBox;
         private System.Windows.Forms.Button OpenORButton;
         private System.Windows.Forms.Button AddORButton;
+        private System.Windows.Forms.Button RemoveORButton;
     }
 }

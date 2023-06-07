@@ -32,6 +32,7 @@ namespace pisV228._4
         }
         private void UpdateRegister()
         {
+            MCRDataGridView.Rows.Clear();
             contracts = controller.GetCards();
             foreach (var e in contracts)
             {
@@ -53,6 +54,26 @@ namespace pisV228._4
             var currentOrganization = contracts.First(x => x.MunicipalContractID == id);
             var formOrg = new MunicipalContractForm(controller, currentOrganization);
             formOrg.Show();
+        }
+
+        private void AddMCRButton_Click(object sender, EventArgs e)
+        {
+            var formOrg = new MunicipalContractForm(controller);
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
+        }
+
+        private void RemoveMCRButton_Click(object sender, EventArgs e)
+        {
+            if (MCRDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(MCRDataGridView.CurrentRow.Cells[0].Value);
+            MCRDataGridView.CurrentRow.Visible = false;
+            controller.RemoveCard(id);
         }
     }
 }

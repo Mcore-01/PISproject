@@ -32,6 +32,7 @@ namespace pisV228._4
         }
         private void UpdateRegister()
         {
+            ORDataGridView.Rows.Clear();
             organizations = controller.GetCards();
             foreach (var e in organizations)
             {
@@ -55,7 +56,10 @@ namespace pisV228._4
         private void AddORButton_Click(object sender, EventArgs e)
         {
             var formOrg = new OrganizationForm(controller);
-            formOrg.Show();
+            if (formOrg.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void OpenORButton_Click(object sender, EventArgs e)
@@ -68,6 +72,17 @@ namespace pisV228._4
             var currentOrganization = organizations.First(x => x.OrganizationID == id);
             var formOrg = new OrganizationForm(controller, currentOrganization);
             formOrg.Show();
+        }
+
+        private void RemoveORButton_Click(object sender, EventArgs e)
+        {
+            if (ORDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(ORDataGridView.CurrentRow.Cells[0].Value);
+            ORDataGridView.CurrentRow.Visible = false;
+            controller.RemoveCard(id);
         }
     }
 }

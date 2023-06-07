@@ -33,7 +33,8 @@ namespace pisV228._4
 
         private void UpdateRegister()
         {
-            animals = controller.GetAnimalCards();
+            ARDataGridView.Rows.Clear();
+            animals = controller.GetCards();
             foreach (var e in animals)
             {
                 ARDataGridView.Rows.Add(e.AnimalID, e.Category, e.Gender, e.NameAnimal, e.Locality);
@@ -43,7 +44,10 @@ namespace pisV228._4
         private void AddARButton_Click(object sender, EventArgs e)
         {
             var form = new AnimalForm(controller);
-            form.Show();
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                UpdateRegister();
+            }
         }
 
         private void AnimalRegisterForm_Load(object sender, EventArgs e)
@@ -66,6 +70,17 @@ namespace pisV228._4
         private void AnimalRegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             controller.SaveAnimalRegister();
+        }
+
+        private void RemoveARButton_Click(object sender, EventArgs e)
+        {
+            if (ARDataGridView.CurrentRow == null)
+            {
+                return;
+            }
+            int id = Convert.ToInt32(ARDataGridView.CurrentRow.Cells[0].Value);
+            ARDataGridView.CurrentRow.Visible = false;
+            controller.RemoveCard(id);
         }
     }
 }
